@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="YurtOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dolap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DolapNo" Type="int" />
+          <Property Name="OgrenciId" Type="int" />
+          <Property Name="OdaId" Type="int" />
+          <Property Name="DolapId" Type="int" />
+        </EntityType>
+        <EntityType Name="Masa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="MasaNo" Type="int" />
+          <Property Name="OgrenciId" Type="int" />
+          <Property Name="OdaId" Type="int" />
+          <Property Name="MasaId" Type="int" />
+        </EntityType>
+        <EntityType Name="Oda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="OgrenciId" Type="int" />
+          <Property Name="OdaNo" Type="int" />
+          <Property Name="BuzdolabiSayisi" Type="int" />
+          <Property Name="YatakSayisi" Type="int" />
+          <Property Name="OdaId" Type="int" />
+        </EntityType>
+        <EntityType Name="Ogrenci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="TCKimlikNo" Type="int" />
+          <Property Name="KanGrubu" Type="nvarchar" MaxLength="10" />
+          <Property Name="Il" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ilce" Type="nvarchar" MaxLength="100" />
+          <Property Name="DogumYeri" Type="nvarchar" MaxLength="100" />
+          <Property Name="DogumTarihi" Type="date" />
+          <Property Name="AnneAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="BabaAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="TelefonNo" Type="int" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="100" />
+          <Property Name="Okul" Type="nvarchar" MaxLength="100" />
+          <Property Name="Bölüm" Type="nvarchar" MaxLength="100" />
+          <Property Name="Fakülte" Type="nvarchar" MaxLength="100" />
+          <Property Name="GirisTarihi" Type="date" />
+          <Property Name="AyrilisTarihi" Type="date" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="OdaNo" Type="int" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="TCKimlikNo" Type="int" />
+          <Property Name="KanGrubu" Type="nvarchar" MaxLength="10" />
+          <Property Name="Il" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ilce" Type="nvarchar" MaxLength="100" />
+          <Property Name="DogumYeri" Type="nvarchar" MaxLength="100" />
+          <Property Name="DogumTarihi" Type="date" />
+          <Property Name="AnneAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="BabaAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="TelefonNo" Type="int" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="100" />
+          <Property Name="GirisTarihi" Type="date" />
+          <Property Name="AyrilisTarihi" Type="date" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="SigortaNo" Type="int" />
+          <Property Name="GörevAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="PersonelMaas" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Yatak">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="YatakNo" Type="int" />
+          <Property Name="OgrenciId" Type="int" />
+          <Property Name="OdaId" Type="int" />
+          <Property Name="YatakId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Dolap_Ogrenci">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="Dolap" Type="Self.Dolap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dolap">
+              <PropertyRef Name="OgrenciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Masa_Ogrenci">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="Masa" Type="Self.Masa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Masa">
+              <PropertyRef Name="OgrenciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Dolap">
+          <End Role="Dolap" Type="Self.Dolap" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolap">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="OdaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Masa">
+          <End Role="Masa" Type="Self.Masa" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="OdaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Ogrenci">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="OgrenciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Yatak">
+          <End Role="Yatak" Type="Self.Yatak" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yatak">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="OdaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yatak_Ogrenci">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="Yatak" Type="Self.Yatak" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Yatak">
+              <PropertyRef Name="OgrenciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YurtOtomasyonModelStoreContainer">
+          <EntitySet Name="Dolap" EntityType="Self.Dolap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Masa" EntityType="Self.Masa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oda" EntityType="Self.Oda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ogrenci" EntityType="Self.Ogrenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yatak" EntityType="Self.Yatak" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Dolap_Ogrenci" Association="Self.FK_Dolap_Ogrenci">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="Dolap" EntitySet="Dolap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Masa_Ogrenci" Association="Self.FK_Masa_Ogrenci">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="Masa" EntitySet="Masa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Dolap" Association="Self.FK_Oda_Dolap">
+            <End Role="Dolap" EntitySet="Dolap" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Masa" Association="Self.FK_Oda_Masa">
+            <End Role="Masa" EntitySet="Masa" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Ogrenci" Association="Self.FK_Oda_Ogrenci">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Yatak" Association="Self.FK_Oda_Yatak">
+            <End Role="Yatak" EntitySet="Yatak" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yatak_Ogrenci" Association="Self.FK_Yatak_Ogrenci">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="Yatak" EntitySet="Yatak" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YurtOtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dolap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DolapNo" Type="Int32" />
+          <Property Name="OgrenciId" Type="Int32" />
+          <Property Name="OdaId" Type="Int32" />
+          <Property Name="DolapId" Type="Int32" />
+          <NavigationProperty Name="Ogrenci" Relationship="Self.FK_Dolap_Ogrenci" FromRole="Dolap" ToRole="Ogrenci" />
+          <NavigationProperty Name="Oda" Relationship="Self.FK_Oda_Dolap" FromRole="Dolap" ToRole="Oda" />
+        </EntityType>
+        <EntityType Name="Masa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="MasaNo" Type="Int32" />
+          <Property Name="OgrenciId" Type="Int32" />
+          <Property Name="OdaId" Type="Int32" />
+          <Property Name="MasaId" Type="Int32" />
+          <NavigationProperty Name="Ogrenci" Relationship="Self.FK_Masa_Ogrenci" FromRole="Masa" ToRole="Ogrenci" />
+          <NavigationProperty Name="Oda" Relationship="Self.FK_Oda_Masa" FromRole="Masa" ToRole="Oda" />
+        </EntityType>
+        <EntityType Name="Oda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="OgrenciId" Type="Int32" />
+          <Property Name="OdaNo" Type="Int32" />
+          <Property Name="BuzdolabiSayisi" Type="Int32" />
+          <Property Name="YatakSayisi" Type="Int32" />
+          <Property Name="OdaId" Type="Int32" />
+          <NavigationProperty Name="Dolap" Relationship="Self.FK_Oda_Dolap" FromRole="Oda" ToRole="Dolap" />
+          <NavigationProperty Name="Masa" Relationship="Self.FK_Oda_Masa" FromRole="Oda" ToRole="Masa" />
+          <NavigationProperty Name="Ogrenci" Relationship="Self.FK_Oda_Ogrenci" FromRole="Oda" ToRole="Ogrenci" />
+          <NavigationProperty Name="Yatak" Relationship="Self.FK_Oda_Yatak" FromRole="Oda" ToRole="Yatak" />
+        </EntityType>
+        <EntityType Name="Ogrenci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TCKimlikNo" Type="Int32" />
+          <Property Name="KanGrubu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Il" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ilce" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DogumYeri" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="AnneAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BabaAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonNo" Type="Int32" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Okul" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Bölüm" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Fakülte" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GirisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="AyrilisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OdaNo" Type="Int32" />
+          <NavigationProperty Name="Dolap" Relationship="Self.FK_Dolap_Ogrenci" FromRole="Ogrenci" ToRole="Dolap" />
+          <NavigationProperty Name="Masa" Relationship="Self.FK_Masa_Ogrenci" FromRole="Ogrenci" ToRole="Masa" />
+          <NavigationProperty Name="Oda" Relationship="Self.FK_Oda_Ogrenci" FromRole="Ogrenci" ToRole="Oda" />
+          <NavigationProperty Name="Yatak" Relationship="Self.FK_Yatak_Ogrenci" FromRole="Ogrenci" ToRole="Yatak" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TCKimlikNo" Type="Int32" />
+          <Property Name="KanGrubu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Il" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ilce" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DogumYeri" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="AnneAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BabaAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonNo" Type="Int32" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GirisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="AyrilisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SigortaNo" Type="Int32" />
+          <Property Name="GörevAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelMaas" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Yatak">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="YatakNo" Type="Int32" />
+          <Property Name="OgrenciId" Type="Int32" />
+          <Property Name="OdaId" Type="Int32" />
+          <Property Name="YatakId" Type="Int32" />
+          <NavigationProperty Name="Oda" Relationship="Self.FK_Oda_Yatak" FromRole="Yatak" ToRole="Oda" />
+          <NavigationProperty Name="Ogrenci" Relationship="Self.FK_Yatak_Ogrenci" FromRole="Yatak" ToRole="Ogrenci" />
+        </EntityType>
+        <Association Name="FK_Dolap_Ogrenci">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="Dolap" Type="Self.Dolap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dolap">
+              <PropertyRef Name="OgrenciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Dolap">
+          <End Role="Dolap" Type="Self.Dolap" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolap">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="OdaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Masa_Ogrenci">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="Masa" Type="Self.Masa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Masa">
+              <PropertyRef Name="OgrenciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Masa">
+          <End Role="Masa" Type="Self.Masa" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="OdaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Ogrenci">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="OgrenciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Yatak">
+          <End Role="Yatak" Type="Self.Yatak" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yatak">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="OdaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yatak_Ogrenci">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="Yatak" Type="Self.Yatak" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Yatak">
+              <PropertyRef Name="OgrenciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YurtOtomasyonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dolap" EntityType="Self.Dolap" />
+          <EntitySet Name="Masa" EntityType="Self.Masa" />
+          <EntitySet Name="Oda" EntityType="Self.Oda" />
+          <EntitySet Name="Ogrenci" EntityType="Self.Ogrenci" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Yatak" EntityType="Self.Yatak" />
+          <AssociationSet Name="FK_Dolap_Ogrenci" Association="Self.FK_Dolap_Ogrenci">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="Dolap" EntitySet="Dolap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Dolap" Association="Self.FK_Oda_Dolap">
+            <End Role="Dolap" EntitySet="Dolap" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Masa_Ogrenci" Association="Self.FK_Masa_Ogrenci">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="Masa" EntitySet="Masa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Masa" Association="Self.FK_Oda_Masa">
+            <End Role="Masa" EntitySet="Masa" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Ogrenci" Association="Self.FK_Oda_Ogrenci">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Yatak" Association="Self.FK_Oda_Yatak">
+            <End Role="Yatak" EntitySet="Yatak" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yatak_Ogrenci" Association="Self.FK_Yatak_Ogrenci">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="Yatak" EntitySet="Yatak" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YurtOtomasyonModelStoreContainer" CdmEntityContainer="YurtOtomasyonEntities">
+          <EntitySetMapping Name="Dolap">
+            <EntityTypeMapping TypeName="YurtOtomasyonModel.Dolap">
+              <MappingFragment StoreEntitySet="Dolap">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DolapNo" ColumnName="DolapNo" />
+                <ScalarProperty Name="OgrenciId" ColumnName="OgrenciId" />
+                <ScalarProperty Name="OdaId" ColumnName="OdaId" />
+                <ScalarProperty Name="DolapId" ColumnName="DolapId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Masa">
+            <EntityTypeMapping TypeName="YurtOtomasyonModel.Masa">
+              <MappingFragment StoreEntitySet="Masa">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MasaNo" ColumnName="MasaNo" />
+                <ScalarProperty Name="OgrenciId" ColumnName="OgrenciId" />
+                <ScalarProperty Name="OdaId" ColumnName="OdaId" />
+                <ScalarProperty Name="MasaId" ColumnName="MasaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oda">
+            <EntityTypeMapping TypeName="YurtOtomasyonModel.Oda">
+              <MappingFragment StoreEntitySet="Oda">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OgrenciId" ColumnName="OgrenciId" />
+                <ScalarProperty Name="OdaNo" ColumnName="OdaNo" />
+                <ScalarProperty Name="BuzdolabiSayisi" ColumnName="BuzdolabiSayisi" />
+                <ScalarProperty Name="YatakSayisi" ColumnName="YatakSayisi" />
+                <ScalarProperty Name="OdaId" ColumnName="OdaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ogrenci">
+            <EntityTypeMapping TypeName="YurtOtomasyonModel.Ogrenci">
+              <MappingFragment StoreEntitySet="Ogrenci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="TCKimlikNo" ColumnName="TCKimlikNo" />
+                <ScalarProperty Name="KanGrubu" ColumnName="KanGrubu" />
+                <ScalarProperty Name="Il" ColumnName="Il" />
+                <ScalarProperty Name="Ilce" ColumnName="Ilce" />
+                <ScalarProperty Name="DogumYeri" ColumnName="DogumYeri" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="AnneAdi" ColumnName="AnneAdi" />
+                <ScalarProperty Name="BabaAdi" ColumnName="BabaAdi" />
+                <ScalarProperty Name="TelefonNo" ColumnName="TelefonNo" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Okul" ColumnName="Okul" />
+                <ScalarProperty Name="Bölüm" ColumnName="Bölüm" />
+                <ScalarProperty Name="Fakülte" ColumnName="Fakülte" />
+                <ScalarProperty Name="GirisTarihi" ColumnName="GirisTarihi" />
+                <ScalarProperty Name="AyrilisTarihi" ColumnName="AyrilisTarihi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="OdaNo" ColumnName="OdaNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personel">
+            <EntityTypeMapping TypeName="YurtOtomasyonModel.Personel">
+              <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="TCKimlikNo" ColumnName="TCKimlikNo" />
+                <ScalarProperty Name="KanGrubu" ColumnName="KanGrubu" />
+                <ScalarProperty Name="Il" ColumnName="Il" />
+                <ScalarProperty Name="Ilce" ColumnName="Ilce" />
+                <ScalarProperty Name="DogumYeri" ColumnName="DogumYeri" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="AnneAdi" ColumnName="AnneAdi" />
+                <ScalarProperty Name="BabaAdi" ColumnName="BabaAdi" />
+                <ScalarProperty Name="TelefonNo" ColumnName="TelefonNo" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="GirisTarihi" ColumnName="GirisTarihi" />
+                <ScalarProperty Name="AyrilisTarihi" ColumnName="AyrilisTarihi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SigortaNo" ColumnName="SigortaNo" />
+                <ScalarProperty Name="GörevAdi" ColumnName="GörevAdi" />
+                <ScalarProperty Name="PersonelMaas" ColumnName="PersonelMaas" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="YurtOtomasyonModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yatak">
+            <EntityTypeMapping TypeName="YurtOtomasyonModel.Yatak">
+              <MappingFragment StoreEntitySet="Yatak">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="YatakNo" ColumnName="YatakNo" />
+                <ScalarProperty Name="OgrenciId" ColumnName="OgrenciId" />
+                <ScalarProperty Name="OdaId" ColumnName="OdaId" />
+                <ScalarProperty Name="YatakId" ColumnName="YatakId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
