@@ -16,10 +16,10 @@
 <body>
     <div class="container">
         <h1>Öğrenci İsmi</h1>
-        <a href="" class="button">İzin iste</a>
+        <a href="" class="button">İzin İşlemleri</a>
         <a href="" class="button">Yardım Çağır</a>
-        <a href="" class="button">Ödeme Yap</a>
-        <a href="" class="button">Şifre Değiştir</a>
+        <a href="" class="button">Ödeme İşlemleri</a>
+        <a href="" class="şifre">Şifre Değiştir</a>
         
 
 
@@ -58,20 +58,21 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 400px;
+        width: 1200px;   
         background: white;
         border-radius: 10px;
         box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+        
     }
         .container h1 {
             text-align: center;
             padding: 20px 0;
         }
 
-
-    .button {
-        background-color:mediumpurple;
-        margin: 32px;
+    .şifre {
+        float: left;
+        background-color: mediumpurple;
+        margin-left: 150px;
         position: relative;
         text-decoration: none;
         padding: 20px 50px;
@@ -83,6 +84,47 @@
         border-radius: 30px;
         box-shadow: 0 0 0 0 rgba(143,64,248,0.5),0 0 0 0 rgba(39,200,255,0.5);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 250px;
+        height: 50px;
+        margin-top:32px;
+        margin-bottom:32px;
+    }
+        .şifre::after {
+            content: "";
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: -50px;
+            left: -100px;
+            background-color: #ff3cac;
+            background-image: linear-gradient(225deg,#27d86c 0%,#26caf8 50%, #c625d0 100%);
+            z-index: -1;
+            transition: transform 0.5s ease;
+        }
+        .şifre:hover {
+            transform: translate(0,6px);
+            box-shadow: 10px -10px 25px 0 rgba(143,64,248,0.5),-10px 10px 25px rgba(39,200,255,0.5);
+        }
+    .button {
+        float:left;
+        background-color: mediumpurple;
+        margin-left: 150px;
+        
+        position: relative;
+        text-decoration: none;
+        padding: 20px 50px;
+        font-size: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        color: white;
+        border-radius: 30px;
+        box-shadow: 0 0 0 0 rgba(143,64,248,0.5),0 0 0 0 rgba(39,200,255,0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 200px;
+        height: 150px;
+        text-align: center;
+        line-height: 50px;
     }
     .button::after{
         content:"";
