@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YURT-OTOMASYONU.Data", "YUR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YURT_OTOMASYONU.ViewModels", "YURT_OTOMASYONU.ViewModels\YURT_OTOMASYONU.ViewModels.csproj", "{7F31A2B5-959A-4C8F-B722-0086F89CB1E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YURT-OTOMASYONU.Services", "YURT-OTOMASYONU.Services\YURT-OTOMASYONU.Services.csproj", "{B82FDC3F-41FE-45EC-B2A9-4949B8963D42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7F31A2B5-959A-4C8F-B722-0086F89CB1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F31A2B5-959A-4C8F-B722-0086F89CB1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F31A2B5-959A-4C8F-B722-0086F89CB1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B82FDC3F-41FE-45EC-B2A9-4949B8963D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B82FDC3F-41FE-45EC-B2A9-4949B8963D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B82FDC3F-41FE-45EC-B2A9-4949B8963D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B82FDC3F-41FE-45EC-B2A9-4949B8963D42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

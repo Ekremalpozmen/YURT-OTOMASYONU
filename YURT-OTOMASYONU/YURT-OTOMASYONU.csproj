@@ -195,6 +195,10 @@
       <Project>{3399b867-132e-4525-b58b-270c1aa66df0}</Project>
       <Name>YURT-OTOMASYONU.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YURT-OTOMASYONU.Services\YURT-OTOMASYONU.Services.csproj">
+      <Project>{B82FDC3F-41FE-45EC-B2A9-4949B8963D42}</Project>
+      <Name>YURT-OTOMASYONU.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YURT_OTOMASYONU.ViewModels\YURT_OTOMASYONU.ViewModels.csproj">
       <Project>{7f31a2b5-959a-4c8f-b722-0086f89cb1e3}</Project>
       <Name>YURT_OTOMASYONU.ViewModels</Name>
