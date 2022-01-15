@@ -20,6 +20,8 @@
         <a href="" class="button">Personel</a>
         @using (Html.BeginForm("Login", "Login", FormMethod.Post))
         {
+            @ViewBag.kullanıcıyokmesaj
+
             <form method="post">
                 <div class="txt_field">
                     @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "kullanıcı adı giriniz" })
