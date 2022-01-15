@@ -170,7 +170,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Login\index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +194,10 @@
     <ProjectReference Include="..\YURT-OTOMASYONU.Data\YURT-OTOMASYONU.Data.csproj">
       <Project>{3399b867-132e-4525-b58b-270c1aa66df0}</Project>
       <Name>YURT-OTOMASYONU.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YURT_OTOMASYONU.ViewModels\YURT_OTOMASYONU.ViewModels.csproj">
+      <Project>{7f31a2b5-959a-4c8f-b722-0086f89cb1e3}</Project>
+      <Name>YURT_OTOMASYONU.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
