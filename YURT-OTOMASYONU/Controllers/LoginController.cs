@@ -12,7 +12,7 @@ namespace YURT_OTOMASYONU.Controllers
 {
     public class LoginController : Controller
     {
-
+        YurtOtomasyonEntities db = new YurtOtomasyonEntities();
         public ActionResult Login()
         {
             return View();
@@ -20,7 +20,6 @@ namespace YURT_OTOMASYONU.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            YurtOtomasyonEntities db = new YurtOtomasyonEntities();
             var ogrenciInDb = db.Ogrenci.FirstOrDefault(x => x.Sifre == model.Password && x.KullaniciAdi == model.Username);
             if (ogrenciInDb != null)
             {
