@@ -10,9 +10,7 @@
     <meta charset="utf-8" />
     <title>LoginPage</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
-
 <body>
     <div class="center overflow-hidden">
         <h1>Giriş</h1>
@@ -44,33 +42,33 @@
                 </form>
             }
             <!-- personel formu -->
-            <form method="post" class="staff-form staff-hidden">
-                <div class="txt_field">
-                    <input type="text" class="form-control" placeholder="Personel kullanıcı adı giriniz">
-                    <span></span>
-                    <label>Kullanıcı Adı</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" class="form-control" placeholder="Şifre">
-                    <span></span>
-                    <label>Şifre</label>
-                </div>
-                <div class="pass">Şifremi Unuttum</div>
-                <label>
-                    <input type="checkbox" class="form-check-input">
-                    Beni Hatırla
-                </label>
-                <input type="submit" value="Giriş Yap">
-                <div class="signup_link">
-                </div>
-            </form>
-        </div>
+            @using (Html.BeginForm("PersonelLogin", "Login", FormMethod.Post))
+            {
+                <form  class="staff-form staff-hidden">
+                    <div class="txt_field">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Personel kullanıcı adı giriniz" })
+                        <span></span>
+                        <label>Kullanıcı Adı</label>
+                    </div>
+                    <div class="txt_field">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre giriniz", required = "required" })
+                        <span></span>
+                        <label>Şifre</label>
+                    </div>
+                    <div class="pass">Şifremi Unuttum</div>
+                    <label>
+                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+                        Beni Hatırla
+                    </label>
+                    <input type="submit" value="Giriş Yap">
+                    <div class="signup_link">
+                    </div>
+                </form>
+            }
+            </div>
     </div>
-
 </body>
-
 </html>
-
 <style>
 
 

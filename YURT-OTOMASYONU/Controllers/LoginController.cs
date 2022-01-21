@@ -32,6 +32,21 @@ namespace YURT_OTOMASYONU.Controllers
                 return View();
             }
         }
+        [HttpPost]
+        public ActionResult PersonelLogin(LoginViewModel model)
+        {
+            var personelInDb = db.Personel.FirstOrDefault(x => x.Sifre == model.Password && x.KullaniciAdi == model.Username);
+            if (personelInDb != null)
+            {
+                FormsAuthentication.SetAuthCookie(personelInDb.Ad, model.RememberMe);
+                return RedirectToAction("Index", "Personel");
+            }
+            else
+            {
+                ViewBag.kullanıcıyokmesaj = "Geçersiz Kullanıcı Adı veya Şifre";
+                return View();
+            }
+        }
 
         public ActionResult Logout()
         {
