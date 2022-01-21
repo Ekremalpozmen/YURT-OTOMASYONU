@@ -16,10 +16,10 @@
     <div class="container">
         <h2 style="text-align:left">Hoşgeldin:@HttpContext.Current.User.Identity.Name</h2>
         <br />
-        <button type="button" class="button" data-toggle="modal" data-target="#exampleModal">İzin işlemleri</button>
+        <button type="button" class="button" data-toggle="modal" data-target="#izinModal">İzin işlemleri</button>
         @using (Html.BeginForm("Index", "Home", FormMethod.Post))
         {
-            <div id="exampleModal" class="modal" role="dialog">
+            <div id="izinModal" class="modal" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -49,14 +49,43 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
                         </div>
                     </div>
                 </div>
             </div>
         }
-        <a href="" class="button">Yardım Çağır</a>
+        <button type="button" class="button" data-toggle="modal" data-target="#ödemeModal">Ödeme Yap</button>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <div id="ödemeModal" class="modal" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Ödeme Yap</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="fname">IBAN NO</label>
+                                <input type="text"><br><br>
+                            </div>
+                            <div class="form-group">
+                                <label>Tutar</label>
+                                <input type="text"><br><br>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
         <a href="" class="button">Ödeme İşlemleri</a>
         <a href="" class="şifre">Şifre Değiştir</a>
         <a href="@Url.Action("Logout","Login")" class="şifre">Çıkış Yap</a>
