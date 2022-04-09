@@ -1,99 +1,38 @@
-﻿@{
-    Layout = null;
-}
+﻿
 <!DOCTYPE html>
 <html lang="tr" dir="ltr">
 <head>
     <meta charset="utf-8" />
     <title>LoginPage</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <script src="~/Scripts/custom.modal.form.js"></script>
 </head>
-
 <body>
     <div class="container">
         <h2 style="text-align:left">Hoşgeldin:@HttpContext.Current.User.Identity.Name</h2>
         <br />
-        <button type="button" class="button" data-toggle="modal" data-target="#izinModal">İzin işlemleri</button>
-        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-        {
-            <div id="izinModal" class="modal" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">İzin İste</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="fname">Başlangıç Tarihi</label>
-                                <input type="text"><br><br>
-                            </div>
-                            <div class="form-group">
-                                <label>Bitiş Tarihi</label>
-                                <input type="text"><br><br>
+        @*Örnek Kod*@
+        <a data-modal-form="true"
+           data-modal-size="modal-xl"
+           data-modal-title="İzin işlemleri"
+           href="@Url.Action("Permission", "Student", routeValues: new {Area = string.Empty})"
+           data-hook-beforeunload="true"
+           class="button">
+            İzin işlemleri
+        </a>
+        @*Örnek Kod Bitiş*@
 
-                            </div>
-                            <div class="form-group">
-                                <label>Açıklama</label>
-                                <input type="text"><br><br>
-
-                            </div> <div class="form-group">
-                                <label>İletişim numarası</label>
-                                <input type="text"><br><br>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Kaydet</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
         <button type="button" class="button" data-toggle="modal" data-target="#ödemeModal">Ödeme Yap</button>
-        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-        {
-            <div id="ödemeModal" class="modal" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Ödeme Yap</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="fname">IBAN NO</label>
-                                <input type="text"><br><br>
-                            </div>
-                            <div class="form-group">
-                                <label>Tutar</label>
-                                <input type="text"><br><br>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Kaydet</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-        <a href="" class="button">Ödeme İşlemleri</a>
+        <a href="" class="button">Yardım Çağır</a>
         <a href="" class="şifre">Şifre Değiştir</a>
         <a href="@Url.Action("Logout","Login")" class="şifre">Çıkış Yap</a>
 
     </div>
 </body>
-
 </html>
+
 <style>
 
 

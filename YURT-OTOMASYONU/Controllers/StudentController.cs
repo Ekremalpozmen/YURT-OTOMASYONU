@@ -13,5 +13,10 @@ namespace YURT_OTOMASYONU.Controllers
         {
             return View();
         }
+
+        public ActionResult Permission()
+        {
+            return PartialView("~/Views/Student/_Permission.cshtml");
+        }
     }
 }
