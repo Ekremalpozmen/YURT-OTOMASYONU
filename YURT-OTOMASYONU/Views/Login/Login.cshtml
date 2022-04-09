@@ -24,6 +24,7 @@
             <!-- öğrenci formu -->
             @using (Html.BeginForm("Login", "Login", FormMethod.Post))
             {
+                @Html.ValidationSummary()
                 <form method="post" class="student-form">
                     <div class="txt_field">
                         @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "kullanıcı adı giriniz" })
@@ -32,7 +33,6 @@
                     </div>
                     <div class="txt_field">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre giriniz", required = "required" })
-
                         <span></span>
                     </div>
                     <div class="pass">Şifremi Unuttum</div>

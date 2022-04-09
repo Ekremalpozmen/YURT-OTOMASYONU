@@ -16,32 +16,38 @@ namespace YURT_OTOMASYONU.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            var ogrenciInDb = db.Ogrenci.FirstOrDefault(x => x.Sifre == model.Password && x.KullaniciAdi == model.Username);
-            if (ogrenciInDb != null)
+            if (ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(ogrenciInDb.Ad, model.RememberMe);
-                return RedirectToAction("Index", "Student");
+                var ogrenci = db.Ogrenci.FirstOrDefault(x => x.KullaniciAdi == model.Username && x.Sifre == model.Password);
+                if (ogrenci != null)
+                {
+                    FormsAuthentication.SetAuthCookie(ogrenci.Ad, model.RememberMe);
+                    return RedirectToAction("Index", "Student");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı");
+                }
             }
-            else
-            {
-                ViewBag.kullanıcıyokmesaj = "Geçersiz Kullanıcı Adı veya Şifre";
-                return View();
-            }
+            return View();
         }
         [HttpPost]
         public ActionResult PersonelLogin(LoginViewModel model)
         {
-            var personelInDb = db.Personel.FirstOrDefault(x => x.Sifre == model.Password && x.KullaniciAdi == model.Username);
-            if (personelInDb != null)
+            if (ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(personelInDb.Ad, model.RememberMe);
-                return RedirectToAction("Index", "Personel");
+                var personel = db.Personel.FirstOrDefault(x => x.Sifre == model.Password && x.KullaniciAdi == model.Username);
+                if (personel != null)
+                {
+                    FormsAuthentication.SetAuthCookie(personel.Ad, model.RememberMe);
+                    return RedirectToAction("Index", "Personel");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı");
+                }
             }
-            else
-            {
-                ViewBag.kullanıcıyokmesaj = "Geçersiz Kullanıcı Adı veya Şifre";
-                return View();
-            }
+            return View();
         }
         public ActionResult ForgotPassword()
         {
