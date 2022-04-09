@@ -6,15 +6,10 @@ using System.Web.Mvc;
 
 namespace YURT_OTOMASYONU.Controllers
 {
-    public class PersonelController : Controller
+    public class ManagerController : Controller
     {
-        // GET: Personel
+        // GET: Manager
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult AddFood()
         {
             return View();
         }

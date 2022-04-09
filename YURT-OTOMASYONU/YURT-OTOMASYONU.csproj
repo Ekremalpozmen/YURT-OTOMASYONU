@@ -124,8 +124,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FoodListController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -167,6 +170,11 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Personel\Index.cshtml" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\FoodList\Index.cshtml" />
+    <Content Include="Views\Personel\AddFood.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -189,10 +197,6 @@
     <ProjectReference Include="..\YURT-OTOMASYONU.Data\YURT-OTOMASYONU.Data.csproj">
       <Project>{3399b867-132e-4525-b58b-270c1aa66df0}</Project>
       <Name>YURT-OTOMASYONU.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YURT-OTOMASYONU.Services\YURT-OTOMASYONU.Services.csproj">
-      <Project>{B82FDC3F-41FE-45EC-B2A9-4949B8963D42}</Project>
-      <Name>YURT-OTOMASYONU.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\YURT_OTOMASYONU.ViewModels\YURT_OTOMASYONU.ViewModels.csproj">
       <Project>{7f31a2b5-959a-4c8f-b722-0086f89cb1e3}</Project>

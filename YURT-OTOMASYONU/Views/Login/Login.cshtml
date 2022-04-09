@@ -1,4 +1,8 @@
-﻿@model YURT_OTOMASYONU.ViewModels.Security.LoginViewModel
+﻿@*/Login/Login*@
+@*kullanıcı adı:admin
+    şifre:123*@
+
+@model YURT_OTOMASYONU.ViewModels.Security.LoginViewModel
 @{
     Layout = null;
 }
@@ -44,7 +48,7 @@
             <!-- personel formu -->
             @using (Html.BeginForm("PersonelLogin", "Login", FormMethod.Post))
             {
-                <form  class="staff-form staff-hidden">
+                <form class="staff-form staff-hidden">
                     <div class="txt_field">
                         @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Personel kullanıcı adı giriniz" })
                         <span></span>
@@ -65,7 +69,7 @@
                     </div>
                 </form>
             }
-            </div>
+        </div>
     </div>
 </body>
 </html>
