@@ -1,4 +1,4 @@
-(function ($) {
+ï»¿(function ($) {
     $.fn.customModalForm = function () {
         var that = this;
         var overlay = $("<div class='page-wrapper'><div class='page-content'><div id='loader-wrapper'  class='text-center'><div id='loader' ></div></div></div></div>");
@@ -103,7 +103,7 @@
 
             modalWindow.on('show.bs.modal', function (e) {
                 if (hookbeforeunload) {
-                    var confirmationMessage = 'Sayfadan ayrýlýrsanýz, kaydedilmemiþ verileriniz kaybolur!';
+                    var confirmationMessage = 'Sayfadan ayrÄ±lÄ±rsanÄ±z, kaydedilmemiÅŸ verileriniz kaybolur!';
                     (e || window.event).returnValue = confirmationMessage; //Gecko + IE
                     return confirmationMessage; //Webkit, Safari, Chrome etc.
                 }
@@ -114,7 +114,7 @@
             });
             modalWindow.on('hide.bs.modal', function (e) {
                 if (hookbeforeunload) {
-                    var confirmationMessage = 'Sayfadan ayrýlýrsanýz, kaydedilmemiþ verileriniz kaybolur!';
+                    var confirmationMessage = 'Sayfadan ayrÄ±lÄ±rsanÄ±z, kaydedilmemiÅŸ verileriniz kaybolur!';
                     (e || window.event).returnValue = confirmationMessage; //Gecko + IE
                     return confirmationMessage; //Webkit, Safari, Chrome etc.
 
@@ -190,7 +190,7 @@
                         toastr.error(item, 'asd');
                     });
                     $.each(result.successMessages, function (i, item) {
-                        toastr.success(item, 'Baþarýlý');
+                        toastr.success(item, 'BaÅŸarÄ±lÄ±');
                     });
                     var $el;
                     if (prependItem) {
