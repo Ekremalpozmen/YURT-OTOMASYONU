@@ -18,36 +18,12 @@
 <body>
     <div class="center overflow-hidden">
         <h1>Giriş</h1>
-        <a class="button cursor-pointer student-button button-active">Öğrenci</a>
-        <a href="@Url.Action("PersonelLogin","Login")" class="button cursor-pointer staff-button">Personel</a>
+        <a href="@Url.Action("Login","Login")" class="button cursor-pointer student-button button-active">Öğrenci</a>
+        <a href="@Url.Action("PersonelLogin","Login")" class="button cursor-pointer personel-button staff-button">Personel</a>
         <div class="form-area">
             <!-- öğrenci formu -->
-            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
-            {
-            @Html.ValidationSummary()
-            <form method="post" class="student-form">
-                <div class="txt_field">
-                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "kullanıcı adı giriniz" })
-                    <span></span>
-                    <label>Kullanıcı Adı</label>
-                </div>
-                <div class="txt_field">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre giriniz", required = "required" })
-                    <span></span>
-                </div>
-                <div class="pass">Şifremi Unuttum</div>
-                <label>
-                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
-                    Beni Hatırla
-                </label>
-                <input type="submit" value="Giriş Yap">
-                <div class="signup_link">
-                </div>
-            </form>
-            }
-            <!-- personel formu -->
-            <!--@using (Html.BeginForm("PersonelLogin", "Login", FormMethod.Post))
-            {
+            @using (Html.BeginForm("PersonelLogin", "Login", FormMethod.Post))
+{
             <form class="staff-form staff-hidden">
                 <div class="txt_field">
                     @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Personel kullanıcı adı giriniz" })
@@ -68,7 +44,9 @@
                 <div class="signup_link">
                 </div>
             </form>
-            }-->
+}
+
+
         </div>
     </div>
 </body>
@@ -270,15 +248,9 @@
 </style>
 
 <script>
-    $('.student-button').click(function () {
+    $('.personel-button').click(function () {
         $('.staff-form').addClass('staff-hidden')
         $('.student-form').removeClass('student-hidden')
-        $('.button').removeClass('button-active')
-        $(this).addClass('button-active')
-    })
-    $('.staff-button').click(function () {
-        $('.staff-form').removeClass('staff-hidden')
-        $('.student-form').addClass('student-hidden')
         $('.button').removeClass('button-active')
         $(this).addClass('button-active')
     })

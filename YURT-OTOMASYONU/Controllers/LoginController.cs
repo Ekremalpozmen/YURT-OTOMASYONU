@@ -31,6 +31,11 @@ namespace YURT_OTOMASYONU.Controllers
             }
             return View();
         }
+
+        public ActionResult PersonelLogin()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult PersonelLogin(LoginViewModel model)
         {
