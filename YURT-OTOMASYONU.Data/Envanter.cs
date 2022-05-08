@@ -12,22 +12,14 @@ namespace YURT_OTOMASYONU.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Yatak
+    public partial class Envanter
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Yatak()
-        {
-            this.Oda = new HashSet<Oda>();
-        }
-    
         public int Id { get; set; }
-        public Nullable<int> YatakNo { get; set; }
         public Nullable<int> OgrenciId { get; set; }
         public Nullable<int> OdaId { get; set; }
-        public Nullable<int> YatakId { get; set; }
+        public Nullable<int> EnvanterNo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Oda> Oda { get; set; }
+        public virtual Oda Oda { get; set; }
         public virtual Ogrenci Ogrenci { get; set; }
     }
 }

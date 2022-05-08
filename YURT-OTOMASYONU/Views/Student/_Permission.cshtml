@@ -1,17 +1,28 @@
-﻿
+﻿@model YURT_OTOMASYONU.ViewModels.Student.PermissionViewModel
 
-<div class="mb-3">
-    <h1>Kodlar buraya yazılacak</h1>
-</div>
+@using (Html.BeginForm("Permission", "Student", new { Area = String.Empty }, FormMethod.Post, new { role = "form" }))
+{
+    <div class="mb-3">
+        @Html.LabelFor(m => m.BaslangicTarihi)
+        @Html.TextBoxFor(m => m.BaslangicTarihi, new { type = "datetime-local" })
+        <div class="clearfix"></div>
+        @Html.LabelFor(m => m.BitisTarihi)
+        @Html.TextBoxFor(m => m.BitisTarihi, new { type = "datetime-local" })
+        <div class="clearfix"></div>
+        @Html.LabelFor(m => m.Aciklama)
+        @Html.TextBoxFor(m => m.Aciklama, new { @class = "form-control", })
+        <div class="clearfix"></div>
 
-<hr />
-<div class="form-group form-group-sm row">
-    <div class="col-xs-12">
-        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal"><span style="color: white" class="fa fa-times"></span>&nbsp;&nbsp;Vazgeç</button>
-        <button type="submit" class="btn btn-success"><span style="color: white" class="fa fa-check"></span>&nbsp;&nbsp;Kaydet</button>
+        @Html.LabelFor(m => m.İletisimNumarasi)
+        @Html.TextBoxFor(m => m.İletisimNumarasi, new { @class = "form-control", })
     </div>
-</div>
-<div class="clearfix"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
-
-
+    <hr />
+    <div class="form-group form-group-sm row">
+        <div class="col-xs-12">
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal"><span style="color: white" class="fa fa-times"></span>&nbsp;&nbsp;Vazgeç</button>
+            <button type="submit" class="btn btn-success"><span style="color: white" class="fa fa-check"></span>&nbsp;&nbsp;Kaydet</button>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+}

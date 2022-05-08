@@ -14,6 +14,12 @@ namespace YURT_OTOMASYONU.Data
     
     public partial class Oda
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Oda()
+        {
+            this.Envanter = new HashSet<Envanter>();
+        }
+    
         public int Id { get; set; }
         public Nullable<int> OgrenciId { get; set; }
         public Nullable<int> OdaNo { get; set; }
@@ -21,9 +27,8 @@ namespace YURT_OTOMASYONU.Data
         public Nullable<int> YatakSayisi { get; set; }
         public Nullable<int> OdaId { get; set; }
     
-        public virtual Dolap Dolap { get; set; }
-        public virtual Masa Masa { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Envanter> Envanter { get; set; }
         public virtual Ogrenci Ogrenci { get; set; }
-        public virtual Yatak Yatak { get; set; }
     }
 }

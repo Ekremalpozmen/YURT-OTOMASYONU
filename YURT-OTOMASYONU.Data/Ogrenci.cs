@@ -17,10 +17,11 @@ namespace YURT_OTOMASYONU.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ogrenci()
         {
-            this.Dolap = new HashSet<Dolap>();
-            this.Masa = new HashSet<Masa>();
+            this.Envanter = new HashSet<Envanter>();
+            this.Izinler = new HashSet<Izinler>();
             this.Oda = new HashSet<Oda>();
-            this.Yatak = new HashSet<Yatak>();
+            this.Odemeler = new HashSet<Odemeler>();
+            this.Yardımlar = new HashSet<Yardımlar>();
         }
     
         public int Id { get; set; }
@@ -47,12 +48,14 @@ namespace YURT_OTOMASYONU.Data
         public Nullable<int> OdaNo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dolap> Dolap { get; set; }
+        public virtual ICollection<Envanter> Envanter { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Masa> Masa { get; set; }
+        public virtual ICollection<Izinler> Izinler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oda> Oda { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Yatak> Yatak { get; set; }
+        public virtual ICollection<Odemeler> Odemeler { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Yardımlar> Yardımlar { get; set; }
     }
 }

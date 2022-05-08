@@ -12,22 +12,16 @@ namespace YURT_OTOMASYONU.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Dolap
+    public partial class Izinler
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Dolap()
-        {
-            this.Oda = new HashSet<Oda>();
-        }
-    
         public int Id { get; set; }
-        public Nullable<int> DolapNo { get; set; }
         public Nullable<int> OgrenciId { get; set; }
-        public Nullable<int> OdaId { get; set; }
-        public Nullable<int> DolapId { get; set; }
+        public Nullable<System.DateTime> BaslangicTarihi { get; set; }
+        public Nullable<System.DateTime> BitisTarihi { get; set; }
+        public string Aciklama { get; set; }
+        public Nullable<int> İletisimNumarasi { get; set; }
+        public Nullable<bool> KabulDurumu { get; set; }
     
         public virtual Ogrenci Ogrenci { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Oda> Oda { get; set; }
     }
 }

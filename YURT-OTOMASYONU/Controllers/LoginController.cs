@@ -21,7 +21,7 @@ namespace YURT_OTOMASYONU.Controllers
                 var ogrenci = db.Ogrenci.FirstOrDefault(x => x.KullaniciAdi == model.Username && x.Sifre == model.Password);
                 if (ogrenci != null)
                 {
-                    FormsAuthentication.SetAuthCookie(ogrenci.Ad, model.RememberMe);
+                    FormsAuthentication.SetAuthCookie(ogrenci.Id.ToString(), model.RememberMe);
                     return RedirectToAction("Index", "Student");
                 }
                 else

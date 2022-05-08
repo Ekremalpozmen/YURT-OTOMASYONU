@@ -25,12 +25,13 @@ namespace YURT_OTOMASYONU.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Dolap> Dolap { get; set; }
-        public virtual DbSet<Masa> Masa { get; set; }
+        public virtual DbSet<Envanter> Envanter { get; set; }
+        public virtual DbSet<Izinler> Izinler { get; set; }
         public virtual DbSet<Oda> Oda { get; set; }
+        public virtual DbSet<Odemeler> Odemeler { get; set; }
         public virtual DbSet<Ogrenci> Ogrenci { get; set; }
         public virtual DbSet<Personel> Personel { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Yatak> Yatak { get; set; }
+        public virtual DbSet<Yardımlar> Yardımlar { get; set; }
+        public virtual DbSet<YemekListesi> YemekListesi { get; set; }
     }
 }

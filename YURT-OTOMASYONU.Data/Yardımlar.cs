@@ -12,12 +12,14 @@ namespace YURT_OTOMASYONU.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Yardımlar
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> OgrenciId { get; set; }
+        public Nullable<int> EnvanterNo { get; set; }
+        public string Aciklama { get; set; }
+        public Nullable<bool> KabulDurumu { get; set; }
+    
+        public virtual Ogrenci Ogrenci { get; set; }
     }
 }

@@ -12,22 +12,13 @@ namespace YURT_OTOMASYONU.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Masa
+    public partial class Odemeler
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Masa()
-        {
-            this.Oda = new HashSet<Oda>();
-        }
-    
         public int Id { get; set; }
-        public Nullable<int> MasaNo { get; set; }
         public Nullable<int> OgrenciId { get; set; }
-        public Nullable<int> OdaId { get; set; }
-        public Nullable<int> MasaId { get; set; }
+        public Nullable<System.DateTime> OdemeTarihi { get; set; }
+        public Nullable<int> Tutar { get; set; }
     
         public virtual Ogrenci Ogrenci { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Oda> Oda { get; set; }
     }
 }
