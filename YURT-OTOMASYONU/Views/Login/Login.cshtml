@@ -6,76 +6,48 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html lang="tr" dir="ltr">
 <head>
     <meta charset="utf-8" />
-    <title>LoginPage</title>
+    <title>Öğrenci Giriş</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="center overflow-hidden">
-        <h1>Giriş</h1>
+        <h1>Öğrenci Giriş</h1>
         <a class="button cursor-pointer student-button button-active">Öğrenci</a>
         <a href="@Url.Action("PersonelLogin","Login")" class="button cursor-pointer staff-button">Personel</a>
         <div class="form-area">
             <!-- öğrenci formu -->
             @using (Html.BeginForm("Login", "Login", FormMethod.Post))
             {
-            @Html.ValidationSummary()
-            <form method="post" class="student-form">
-                <div class="txt_field">
-                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "kullanıcı adı giriniz" })
-                    <span></span>
-                    <label>Kullanıcı Adı</label>
-                </div>
-                <div class="txt_field">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre giriniz", required = "required" })
-                    <span></span>
-                </div>
-                <div class="pass">Şifremi Unuttum</div>
-                <label>
-                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
-                    Beni Hatırla
-                </label>
-                <input type="submit" value="Giriş Yap">
-                <div class="signup_link">
-                </div>
-            </form>
+                @Html.ValidationSummary()
+                <form method="post" class="student-form">
+                    <div class="txt_field">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Öğrenci Kullanıcı Adı Giriniz" })
+                        <span></span>
+                        <label>Kullanıcı Adı</label>
+                    </div>
+                    <div class="txt_field">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre Giriniz", required = "required" })
+                        <span></span>
+                    </div>
+                    <div class="pass">Şifremi Unuttum</div>
+                    <label>
+                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+                        Beni Hatırla
+                    </label>
+                    <input type="submit" value="Giriş Yap">
+                    <div class="signup_link">
+                    </div>
+                </form>
             }
-            <!-- personel formu -->
-            <!--@using (Html.BeginForm("PersonelLogin", "Login", FormMethod.Post))
-            {
-            <form class="staff-form staff-hidden">
-                <div class="txt_field">
-                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Personel kullanıcı adı giriniz" })
-                    <span></span>
-                    <label>Kullanıcı Adı</label>
-                </div>
-                <div class="txt_field">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre giriniz", required = "required" })
-                    <span></span>
-                    <label>Şifre</label>
-                </div>
-                <div class="pass">Şifremi Unuttum</div>
-                <label>
-                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
-                    Beni Hatırla
-                </label>
-                <input type="submit" value="Giriş Yap">
-                <div class="signup_link">
-                </div>
-            </form>
-            }-->
         </div>
     </div>
 </body>
 </html>
 <style>
-
-
     * {
         margin: 0;
         padding: 0;
