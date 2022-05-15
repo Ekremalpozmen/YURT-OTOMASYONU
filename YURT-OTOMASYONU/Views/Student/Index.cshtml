@@ -24,7 +24,14 @@
         </a>
         @*Örnek Kod Bitiş*@
 
-        <button type="button" class="button" data-toggle="modal" data-target="#ödemeModal">Ödeme Yap</button>
+        <a data-modal-form="true"
+           data-modal-size="modal-xl"
+           data-modal-title="Ödeme Yap"
+           href="@Url.Action("Payment", "Student", routeValues: new {Area = string.Empty})"
+           data-hook-beforeunload="true"
+           class="button">
+            Ödeme Yap
+        </a>
         <a href="" class="button">Yardım Çağır</a>
         <a href="" class="şifre">Şifre Değiştir</a>
         <a href="@Url.Action("Logout","Login")" class="şifre">Çıkış Yap</a>

@@ -43,5 +43,12 @@ namespace YURT_OTOMASYONU.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Payment()
+        {
+            return PartialView("~/Views/Student/_Payment.cshtml");
+        }
+
+
     }
 }
