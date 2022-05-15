@@ -44,6 +44,7 @@
     <Compile Include="Personel\PersonelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\LoginViewModel.cs" />
+    <Compile Include="Student\PaymentViewModel.cs" />
     <Compile Include="Student\PermissionViewModel.cs" />
     <Compile Include="Student\StudentViewModel.cs" />
   </ItemGroup>

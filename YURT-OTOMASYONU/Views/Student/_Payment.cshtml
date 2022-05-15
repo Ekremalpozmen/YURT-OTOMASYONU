@@ -1,15 +1,15 @@
-﻿
+﻿@model YURT_OTOMASYONU.ViewModels.Student.PaymentViewModel
 
 @using (Html.BeginForm("Payment", "Student", new { Area = String.Empty }, FormMethod.Post, new { role = "form" }))
 {
-    <div class="mb-3">
-        @Html.LabelFor(m => m.IbanNo)
-        @Html.TextBoxFor(m => m.IbanNo, new { @class = "form-control", })
-        <div class="clearfix"></div>
-        @Html.LabelFor(m => m.Tutar)
-        @Html.TextBoxFor(m => m.Tutar, new { @class = "form-control", })
+<div class="mb-3">
+    @Html.Label("Iban")
+    @Html.TextBox("Iban", null, new { @class = "form-control "})
+    <div class="clearfix"></div>
+    @Html.LabelFor(m => m.Tutar)
+    @Html.TextBoxFor(m => m.Tutar, new { @class = "form-control", })
 
-    </div>
+</div>
     <hr />
     <div class="form-group form-group-sm row">
         <div class="col-xs-12">

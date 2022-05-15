@@ -49,6 +49,18 @@ namespace YURT_OTOMASYONU.Controllers
             return PartialView("~/Views/Student/_Payment.cshtml");
         }
 
-
+        [HttpPost]
+        public ActionResult Payment(PaymentViewModel model)
+        {
+            var ödeme = new Odemeler
+            {
+                OgrenciId = CurrentUser.Id,
+                OdemeTarihi = DateTime.Now,
+                Tutar = model.Tutar
+            };
+            db.Odemeler.Add(ödeme);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
