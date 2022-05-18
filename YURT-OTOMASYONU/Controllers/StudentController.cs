@@ -62,5 +62,10 @@ namespace YURT_OTOMASYONU.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Profile()
+        {
+            return View();
+        }
     }
 }
