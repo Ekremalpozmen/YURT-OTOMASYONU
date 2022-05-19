@@ -129,7 +129,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -199,7 +198,6 @@
     <Content Include="Views\Personel\Index.cshtml" />
     <Content Include="Views\Login\ForgotPassword.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
-    <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\FoodList\Index.cshtml" />
     <Content Include="Views\Personel\AddFood.cshtml" />
     <Content Include="Views\Student\_Permission.cshtml" />

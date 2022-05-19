@@ -34,7 +34,7 @@
         </a>
         <a href="" class="button">Yardım Çağır</a>
         <a href="" class="şifre">Şifre Değiştir</a>
-        <a href="@Url.Action("Profile","Student")" class="şifre">Profil</a>
+        <a href="@Url.Action("Profile","Student", routeValues: new {Area = string.Empty,ogrenciId=ViewBag.OgrenciId})" class="şifre">Profil</a>
 
         <a href="@Url.Action("Logout","Login")" class="şifre">Çıkış Yap</a>
 

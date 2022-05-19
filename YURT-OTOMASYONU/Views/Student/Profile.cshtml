@@ -1,7 +1,7 @@
-﻿
+﻿@model YURT_OTOMASYONU.ViewModels.Student.StudentViewModel
 @{
     ViewBag.Title = "Profile";
-    Layout =null;
+    Layout = null;
 }
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -15,10 +15,10 @@
             <div class="col-md-6">
                 <div class="profile-head">
                     <h5>
-                        Adı Soyadı
+                        Adı Soyadı:@Model.Ad @Model.Soyad
                     </h5>
                     <h6>
-                        Okul
+                        Okul:@Model.Okul
                     </h6>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -33,16 +33,16 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-work">
-                    <a>TC KİMLİK NO:</a><br />
-                    <a href="">Kan Grubu:</a><br />
-                    <a href="">Il:</a><br />
-                    <a href="">DogumYeri:</a><br />
-                    <a href="">DogumTarihi:</a><br />
-                    <a href=""> TelefonNo:</a><br />
-                    <a href="">Adres:</a><br />
-                    <a href="">Bölüm:</a><br />
-                    <a href="">Email:</a><br />
-                    <a href="">KullaniciAdi:</a><br />
+                    <a>TC KİMLİK NO:@Model.TCKimlikNo</a><br />
+                    <a>Kan Grubu:@Model.KanGrubu</a><br />
+                    <a>İl:@Model.Il</a><br />
+                    <a>Doğum Yeri:@Model.DogumYeri</a><br />
+                    <a>Doğum Tarihi:@Model.DogumTarihi</a><br />
+                    <a>TelefonNo:@Model.TelefonNo</a><br />
+                    <a>Adres:@Model.Adres</a><br />
+                    <a>Bölüm:@Model.Bölüm</a><br />
+                    <a>Email:@Model.Email</a><br />
+                    <a>Kullanıcı Adı:@Model.KullaniciAdi</a><br />
                 </div>
             </div>
         </div>

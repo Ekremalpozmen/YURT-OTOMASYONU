@@ -17,6 +17,7 @@ namespace YURT_OTOMASYONU.Controllers
         // GET: Student
         public ActionResult Index()
         {
+            ViewBag.OgrenciId = CurrentUser.Id;
             return View();
         }
 
@@ -63,9 +64,27 @@ namespace YURT_OTOMASYONU.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Profile()
+        public ActionResult Profile(int ogrenciId)
         {
-            return View();
+            var student = db.Ogrenci.FirstOrDefault(x => x.Id == ogrenciId);
+            var profile = new StudentViewModel()
+            {
+                Id = student.Id,
+                Ad = student.Ad,
+                Soyad = student.Soyad,
+                Okul = student.Okul,
+                TCKimlikNo = student.TCKimlikNo,
+                KanGrubu = student.KanGrubu,
+                Il = student.Il,
+                DogumYeri = student.DogumYeri,
+                DogumTarihi = student.DogumTarihi,
+                TelefonNo = student.TelefonNo,
+                Adres = student.Adres,
+                Bölüm = student.Bölüm,
+                Email = student.Email,
+                KullaniciAdi = student.KullaniciAdi,
+            };
+            return View(profile);
         }
     }
 }
