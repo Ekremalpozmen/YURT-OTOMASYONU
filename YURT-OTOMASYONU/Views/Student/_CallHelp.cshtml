@@ -1,10 +1,10 @@
-﻿@model YURT_OTOMASYONU.ViewModels.Student.PaymentViewModel
+﻿@model YURT_OTOMASYONU.ViewModels.Student.CallHelpViewModel
 
-@using (Html.BeginForm("Payment", "Student", new { Area = String.Empty }, FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm("CallHelp", "Student", new { Area = String.Empty }, FormMethod.Post, new { role = "form" }))
 {
 <div class="mb-3">
     @Html.Label("Envanter")
-    @Html.DropDownList("Envanter", new List<SelectListItem>
+    @Html.DropDownList("envanterNo", new List<SelectListItem>
          {
              new SelectListItem {Text = "Masa", Value = "1"},
              new SelectListItem {Text = "Buzdolabı", Value = "2"},
@@ -15,8 +15,7 @@
     <div class="clearfix"></div>
     @Html.Label("Açıklama")
 
-    @Html.TextBox("Acıklama", null, new { @class = "form-control ",  required = "required", placeholder = "Açıklama Giriniz" })
-
+    @Html.TextBoxFor(m => m.Aciklama, new { @class = "form-control", placeholder = "Açıklama Giriniz", required = "required" })
 
 </div>
     <hr />
