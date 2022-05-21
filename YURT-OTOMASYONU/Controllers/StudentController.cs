@@ -96,5 +96,20 @@ namespace YURT_OTOMASYONU.Controllers
         {
             return PartialView("~/Views/Student/_EditPassword.cshtml");
         }
+
+        [HttpPost]
+        public ActionResult CallHelp(CallHelpViewModel model, int envanterNo)
+        {
+            var yardım = new Yardımlar()
+            {
+                EnvanterNo = envanterNo,
+                Aciklama = model.Aciklama,
+                OgrenciId = CurrentUser.Id,
+                KabulDurumu = false,
+            };
+            db.Yardımlar.Add(yardım);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
