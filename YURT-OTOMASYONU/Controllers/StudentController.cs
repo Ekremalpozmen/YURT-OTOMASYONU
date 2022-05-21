@@ -92,11 +92,6 @@ namespace YURT_OTOMASYONU.Controllers
             return PartialView("~/Views/Student/_CallHelp.cshtml");
         }
 
-        public ActionResult EditPassword()
-        {
-            return PartialView("~/Views/Student/_EditPassword.cshtml");
-        }
-
         [HttpPost]
         public ActionResult CallHelp(CallHelpViewModel model, int envanterNo)
         {
@@ -111,5 +106,41 @@ namespace YURT_OTOMASYONU.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult EditPassword()
+        {
+            return PartialView("~/Views/Student/_EditPassword.cshtml");
+        }
+
+        [HttpPost]
+        public ActionResult EditPassword(EditPasswordViewModel model)
+        {
+            var currentUser = db.Ogrenci.FirstOrDefault(x => x.Id == CurrentUser.Id);
+
+            var userPassword = currentUser.Sifre;
+
+            if (userPassword == model.OldPassword)
+            {
+                if (model.NewPassword == model.NewPasswordAgain)
+                {
+                    currentUser.Sifre = model.NewPassword;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    ViewBag.Mesaj = ("Şifreler Uyuşmuyor");
+                    return ViewBag.Mesaj;
+                }
+            }
+            else
+            {
+                ViewBag.Mesaj = ("Eski Şifre Yanlış");
+                return ViewBag.Mesaj;
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
