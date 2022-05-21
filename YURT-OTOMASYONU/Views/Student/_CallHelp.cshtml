@@ -1,0 +1,31 @@
+﻿@model YURT_OTOMASYONU.ViewModels.Student.PaymentViewModel
+
+@using (Html.BeginForm("Payment", "Student", new { Area = String.Empty }, FormMethod.Post, new { role = "form" }))
+{
+<div class="mb-3">
+    @Html.Label("Envanter")
+    @Html.DropDownList("Envanter", new List<SelectListItem>
+         {
+             new SelectListItem {Text = "Masa", Value = "1"},
+             new SelectListItem {Text = "Buzdolabı", Value = "2"},
+             new SelectListItem {Text = "Dolap", Value = "3"},
+
+         }, "Envanter Seçiniz", new { @class = "form-control", required = "required", style = "margin-bottom: 10px" })
+
+    <div class="clearfix"></div>
+    @Html.Label("Açıklama")
+
+    @Html.TextBox("Acıklama", null, new { @class = "form-control ",  required = "required", placeholder = "Açıklama Giriniz" })
+
+
+</div>
+    <hr />
+    <div class="form-group form-group-sm row">
+        <div class="col-xs-12">
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal"><span style="color: white" class="fa fa-times"></span>&nbsp;&nbsp;Vazgeç</button>
+            <button type="submit" class="btn btn-success"><span style="color: white" class="fa fa-check"></span>&nbsp;&nbsp;Kaydet</button>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+}

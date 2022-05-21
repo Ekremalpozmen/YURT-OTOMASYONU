@@ -204,6 +204,7 @@
     <Content Include="Views\Student\_Payment.cshtml" />
     <Content Include="Views\Login\PersonelLogin.cshtml" />
     <Content Include="Views\Student\Profile.cshtml" />
+    <Content Include="Views\Student\_CallHelp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

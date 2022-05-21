@@ -86,5 +86,10 @@ namespace YURT_OTOMASYONU.Controllers
             };
             return View(profile);
         }
+
+        public ActionResult CallHelp()
+        {
+            return PartialView("~/Views/Student/_CallHelp.cshtml");
+        }
     }
 }
