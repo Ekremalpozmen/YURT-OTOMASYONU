@@ -22,7 +22,6 @@
            class="button">
             İzin işlemleri
         </a>
-        @*Örnek Kod Bitiş*@
 
         <a data-modal-form="true"
            data-modal-size="modal-xl"
@@ -40,9 +39,15 @@
            class="button">
             Yardım Çağır
         </a>
-        <a href="" class="şifre">Şifre Değiştir</a>
+        <a data-modal-form="true"
+           data-modal-size="modal-xl"
+           data-modal-title="Şifre Değiştir"
+           href="@Url.Action("EditPassword", "Student", routeValues: new {Area = string.Empty})"
+           data-hook-beforeunload="true"
+           class="şifre">
+            Şifre Değiştir
+        </a>
         <a href="@Url.Action("Profile","Student", routeValues: new {Area = string.Empty,ogrenciId=ViewBag.OgrenciId})" class="şifre">Profil</a>
-
         <a href="@Url.Action("Logout","Login")" class="şifre">Çıkış Yap</a>
 
     </div>

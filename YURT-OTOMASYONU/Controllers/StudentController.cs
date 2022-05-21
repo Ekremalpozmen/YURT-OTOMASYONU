@@ -91,5 +91,10 @@ namespace YURT_OTOMASYONU.Controllers
         {
             return PartialView("~/Views/Student/_CallHelp.cshtml");
         }
+
+        public ActionResult EditPassword()
+        {
+            return PartialView("~/Views/Student/_EditPassword.cshtml");
+        }
     }
 }
