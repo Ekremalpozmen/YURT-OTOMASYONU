@@ -14,6 +14,11 @@ namespace YURT_OTOMASYONU.Controllers
             return View();
         }
 
+        public ActionResult CallHelp()
+        {
+            return PartialView("~/Views/Personel/_CallHelp.cshtml");
+        }
+
         public ActionResult AddFood()
         {
             return View();

@@ -1,25 +1,47 @@
-﻿@*/Personel/Index*@
+﻿
 
 
-@{
-    ViewBag.Title = "Index";
-    Layout = null;
-}
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<div style="margin-top:100px;margin-left:10px" class="btn-group">
-    <button style="margin-right:10px" type="button" class="btn btn-success">Öğrenciler</button>
-    <div class="vr"></div>
-    <button type="button" class="btn btn-success">Personeller</button>
-</div>
-<div style="margin-top:30px;margin-left:10px">
-
-    <button type="button" class="btn btn-primary">Öğrenci Ekle</button>
-
-    <button type="button" class="btn btn-danger">İzin İsteyenler</button>
-
-    <button type="button" class="btn btn-warning">Ödemeler</button>
-
-    <button type="button" class="btn btn-info">Yardımlar</button>
 
 
-</div>
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <title>LoginPage</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <script src="~/Scripts/custom.modal.form.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+<body>
+    <div style="margin-top:100px;margin-left:10px" class="btn-group">
+        <button style="margin-right:10px" type="button" class="btn btn-success">Öğrenciler</button>
+        <div class="vr"></div>
+        <button type="button" class="btn btn-success">Personeller</button>
+    </div>
+    <div style="margin-top:30px;margin-left:10px">
+
+        <button type="button" class="btn btn-primary">Öğrenci Ekle</button>
+
+        <button type="button" class="btn btn-danger">İzin İsteyenler</button>
+
+        <button type="button" class="btn btn-warning">Ödemeler</button>
+
+        <a data-modal-form="true"
+           data-modal-size="modal-lg"
+           data-modal-title="Yardımlar"
+           href="@Url.Action("CallHelp", "Personel", routeValues: new {Area = string.Empty})"
+           data-hook-beforeunload="true"
+           class="btn btn-info">
+            Yardımlar
+        </a>
+
+
+    </div>  
+</body>
+</html>
+
+
+
