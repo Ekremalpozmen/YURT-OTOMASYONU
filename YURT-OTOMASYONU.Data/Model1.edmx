@@ -12,7 +12,14 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OgrenciId" Type="int" />
           <Property Name="OdaId" Type="int" />
-          <Property Name="EnvanterNo" Type="int" />
+          <Property Name="EnvanterId" Type="int" />
+        </EntityType>
+        <EntityType Name="EnvanterListesi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnvanterAdı" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Izinler">
           <Key>
@@ -99,6 +106,16 @@
           <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="100" />
           <Property Name="Sifre" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Yardımlar">
           <Key>
             <PropertyRef Name="Id" />
@@ -121,6 +138,18 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <Property Name="Yemek3" Type="nvarchar" MaxLength="50" />
           <Property Name="Yemek4" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_Envanter_EnvanterListesi">
+          <End Role="EnvanterListesi" Type="Self.EnvanterListesi" Multiplicity="0..1" />
+          <End Role="Envanter" Type="Self.Envanter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnvanterListesi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Envanter">
+              <PropertyRef Name="EnvanterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Envanter_Oda">
           <End Role="Oda" Type="Self.Oda" Multiplicity="0..1" />
           <End Role="Envanter" Type="Self.Envanter" Multiplicity="*" />
@@ -195,11 +224,13 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
         </Association>
         <EntityContainer Name="YurtOtomasyonModelStoreContainer">
           <EntitySet Name="Envanter" EntityType="Self.Envanter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EnvanterListesi" EntityType="Self.EnvanterListesi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Izinler" EntityType="Self.Izinler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Oda" EntityType="Self.Oda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Odemeler" EntityType="Self.Odemeler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ogrenci" EntityType="Self.Ogrenci" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Yardımlar" EntityType="Self.Yardımlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YemekListesi" EntityType="Self.YemekListesi" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -210,6 +241,10 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
     [YemekListesi].[Yemek4] AS [Yemek4]
     FROM [dbo].[YemekListesi] AS [YemekListesi]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_Envanter_EnvanterListesi" Association="Self.FK_Envanter_EnvanterListesi">
+            <End Role="EnvanterListesi" EntitySet="EnvanterListesi" />
+            <End Role="Envanter" EntitySet="Envanter" />
+          </AssociationSet>
           <AssociationSet Name="FK_Envanter_Oda" Association="Self.FK_Envanter_Oda">
             <End Role="Oda" EntitySet="Oda" />
             <End Role="Envanter" EntitySet="Envanter" />
@@ -241,13 +276,19 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
       <Schema Namespace="YurtOtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="YurtOtomasyonEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Envanter" EntityType="YurtOtomasyonModel.Envanter" />
+          <EntitySet Name="EnvanterListesi" EntityType="YurtOtomasyonModel.EnvanterListesi" />
           <EntitySet Name="Izinler" EntityType="YurtOtomasyonModel.Izinler" />
           <EntitySet Name="Oda" EntityType="YurtOtomasyonModel.Oda" />
           <EntitySet Name="Odemeler" EntityType="YurtOtomasyonModel.Odemeler" />
           <EntitySet Name="Ogrenci" EntityType="YurtOtomasyonModel.Ogrenci" />
           <EntitySet Name="Personel" EntityType="YurtOtomasyonModel.Personel" />
+          <EntitySet Name="sysdiagrams" EntityType="YurtOtomasyonModel.sysdiagrams" />
           <EntitySet Name="Yardımlar" EntityType="YurtOtomasyonModel.Yardımlar" />
           <EntitySet Name="YemekListesi" EntityType="YurtOtomasyonModel.YemekListesi" />
+          <AssociationSet Name="FK_Envanter_EnvanterListesi" Association="YurtOtomasyonModel.FK_Envanter_EnvanterListesi">
+            <End Role="EnvanterListesi" EntitySet="EnvanterListesi" />
+            <End Role="Envanter" EntitySet="Envanter" />
+          </AssociationSet>
           <AssociationSet Name="FK_Envanter_Oda" Association="YurtOtomasyonModel.FK_Envanter_Oda">
             <End Role="Oda" EntitySet="Oda" />
             <End Role="Envanter" EntitySet="Envanter" />
@@ -280,9 +321,18 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OgrenciId" Type="Int32" />
           <Property Name="OdaId" Type="Int32" />
-          <Property Name="EnvanterNo" Type="Int32" />
+          <Property Name="EnvanterId" Type="Int32" />
+          <NavigationProperty Name="EnvanterListesi" Relationship="YurtOtomasyonModel.FK_Envanter_EnvanterListesi" FromRole="Envanter" ToRole="EnvanterListesi" />
           <NavigationProperty Name="Oda" Relationship="YurtOtomasyonModel.FK_Envanter_Oda" FromRole="Envanter" ToRole="Oda" />
           <NavigationProperty Name="Ogrenci" Relationship="YurtOtomasyonModel.FK_Envanter_Ogrenci" FromRole="Envanter" ToRole="Ogrenci" />
+        </EntityType>
+        <EntityType Name="EnvanterListesi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnvanterAdı" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Envanter" Relationship="YurtOtomasyonModel.FK_Envanter_EnvanterListesi" FromRole="EnvanterListesi" ToRole="Envanter" />
         </EntityType>
         <EntityType Name="Izinler">
           <Key>
@@ -378,6 +428,16 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <Property Name="KullaniciAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Sifre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Yardımlar">
           <Key>
             <PropertyRef Name="Id" />
@@ -399,6 +459,18 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <Property Name="Yemek3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Yemek4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <Association Name="FK_Envanter_EnvanterListesi">
+          <End Type="YurtOtomasyonModel.EnvanterListesi" Role="EnvanterListesi" Multiplicity="0..1" />
+          <End Type="YurtOtomasyonModel.Envanter" Role="Envanter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnvanterListesi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Envanter">
+              <PropertyRef Name="EnvanterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Envanter_Oda">
           <End Type="YurtOtomasyonModel.Oda" Role="Oda" Multiplicity="0..1" />
           <End Type="YurtOtomasyonModel.Envanter" Role="Envanter" Multiplicity="*" />
@@ -471,7 +543,7 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -480,9 +552,17 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <EntitySetMapping Name="Envanter">
             <EntityTypeMapping TypeName="YurtOtomasyonModel.Envanter">
               <MappingFragment StoreEntitySet="Envanter">
-                <ScalarProperty Name="EnvanterNo" ColumnName="EnvanterNo" />
+                <ScalarProperty Name="EnvanterId" ColumnName="EnvanterId" />
                 <ScalarProperty Name="OdaId" ColumnName="OdaId" />
                 <ScalarProperty Name="OgrenciId" ColumnName="OgrenciId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EnvanterListesi">
+            <EntityTypeMapping TypeName="YurtOtomasyonModel.EnvanterListesi">
+              <MappingFragment StoreEntitySet="EnvanterListesi">
+                <ScalarProperty Name="EnvanterAdı" ColumnName="EnvanterAdı" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -574,6 +654,17 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
                 <ScalarProperty Name="Soyad" ColumnName="Soyad" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="YurtOtomasyonModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

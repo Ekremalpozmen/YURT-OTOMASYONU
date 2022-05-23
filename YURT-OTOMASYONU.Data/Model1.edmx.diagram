@@ -5,14 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0994dc05ba254fd092db536c2c017831" Name="Diagram1" ZoomLevel="108">
-        <EntityTypeShape EntityType="YurtOtomasyonModel.Envanter" Width="1.5" PointX="5.25" PointY="7.625" />
-        <EntityTypeShape EntityType="YurtOtomasyonModel.Izinler" Width="1.5" PointX="3" PointY="3" />
-        <EntityTypeShape EntityType="YurtOtomasyonModel.Oda" Width="1.5" PointX="3" PointY="9.25" />
-        <EntityTypeShape EntityType="YurtOtomasyonModel.Odemeler" Width="1.5" PointX="3" PointY="15.5" />
-        <EntityTypeShape EntityType="YurtOtomasyonModel.Ogrenci" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="YurtOtomasyonModel.Envanter" Width="1.5" PointX="5.25" PointY="10.625" />
+        <EntityTypeShape EntityType="YurtOtomasyonModel.EnvanterListesi" Width="1.5" PointX="3" PointY="19" />
+        <EntityTypeShape EntityType="YurtOtomasyonModel.Izinler" Width="1.5" PointX="3" PointY="3.125" />
+        <EntityTypeShape EntityType="YurtOtomasyonModel.Oda" Width="1.5" PointX="3" PointY="15.25" />
+        <EntityTypeShape EntityType="YurtOtomasyonModel.Odemeler" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="YurtOtomasyonModel.Ogrenci" Width="1.5" PointX="0.75" PointY="5.75" />
         <EntityTypeShape EntityType="YurtOtomasyonModel.Personel" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="YurtOtomasyonModel.Yardımlar" Width="1.5" PointX="3" PointY="12.5" />
+        <EntityTypeShape EntityType="YurtOtomasyonModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="YurtOtomasyonModel.Yardımlar" Width="1.5" PointX="3" PointY="6.375" />
         <EntityTypeShape EntityType="YurtOtomasyonModel.YemekListesi" Width="1.5" PointX="7.75" PointY="0.75" />
+        <AssociationConnector Association="YurtOtomasyonModel.FK_Envanter_EnvanterListesi" />
         <AssociationConnector Association="YurtOtomasyonModel.FK_Envanter_Oda" />
         <AssociationConnector Association="YurtOtomasyonModel.FK_Envanter_Ogrenci" />
         <AssociationConnector Association="YurtOtomasyonModel.FK_Izinler_Ogrenci" />

@@ -1,4 +1,6 @@
-﻿ <div class="container">
+﻿@model IEnumerable<YURT_OTOMASYONU.Data.Yardımlar>
+
+<div class="container">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -6,37 +8,37 @@
                 <th>TC</th>
                 <th>Eşya</th>
                 <th>Açıklama</th>
+                <th>Oda No</th>
                 <th>İşlem</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>a</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td>
-                <td>
-                    <button type="button" class="btn btn-info">Onayla</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-                <td>mary@example.com</td>
-                <td>
-                    <button type="button" class="btn btn-info">Onayla</button>
-                </td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-                <td>july@example.com</td>
-                <td>
-                    <button type="button" class="btn btn-info">Onayla</button>
-                </td>
-            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.OgrenciId</td>
+                    <td>@item.Ogrenci.TCKimlikNo</td>
+                    <td>
+                        @if (item.EnvanterNo == 1)
+                        {
+                            <h6>Masa</h6>
+                        }
+                        else if (item.EnvanterNo == 2)
+                        {
+                            <h6>Buzdolabı</h6>
+                        }
+                        else
+                        {<h6>Dolap</h6>}
+
+                    <td>@item.Aciklama</td>
+                    <td>@item.Ogrenci.OdaNo</td>
+                    <td>
+                        <button type="button" class="btn btn-info">Onayla</button>
+                    </td>
+                </tr>
+
+            }
+
         </tbody>
     </table>
 </div>

@@ -12,15 +12,18 @@ namespace YURT_OTOMASYONU.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Envanter
+    public partial class EnvanterListesi
     {
-        public int Id { get; set; }
-        public Nullable<int> OgrenciId { get; set; }
-        public Nullable<int> OdaId { get; set; }
-        public Nullable<int> EnvanterId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public EnvanterListesi()
+        {
+            this.Envanter = new HashSet<Envanter>();
+        }
     
-        public virtual EnvanterListesi EnvanterListesi { get; set; }
-        public virtual Oda Oda { get; set; }
-        public virtual Ogrenci Ogrenci { get; set; }
+        public int Id { get; set; }
+        public string EnvanterAdı { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Envanter> Envanter { get; set; }
     }
 }

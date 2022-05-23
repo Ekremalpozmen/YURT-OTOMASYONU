@@ -12,15 +12,12 @@ namespace YURT_OTOMASYONU.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Envanter
+    public partial class sysdiagrams
     {
-        public int Id { get; set; }
-        public Nullable<int> OgrenciId { get; set; }
-        public Nullable<int> OdaId { get; set; }
-        public Nullable<int> EnvanterId { get; set; }
-    
-        public virtual EnvanterListesi EnvanterListesi { get; set; }
-        public virtual Oda Oda { get; set; }
-        public virtual Ogrenci Ogrenci { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
