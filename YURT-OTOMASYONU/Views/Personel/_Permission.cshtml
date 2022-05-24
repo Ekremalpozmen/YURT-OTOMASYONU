@@ -1,4 +1,5 @@
-﻿ 
+﻿@model IEnumerable<YURT_OTOMASYONU.Data.Izinler>
+
 
 <div class="container">
     <table class="table table-bordered">
@@ -10,14 +11,18 @@
             </tr>
         </thead>
         <tbody>
-           <tr>
-               <td>ali veli</td>
-               <td>123123</td>
-               <td style="text-align-last:center">
-                   <button type="button" class="btn btn-info">Detay</button>
-                   <button type="button" class="btn btn-info">Onayla</button>
-               </td>
-           </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Ogrenci.Ad @item.Ogrenci.Soyad</td>
+                    <td>@item.Ogrenci.TCKimlikNo</td>
+                    <td style="text-align-last:center">
+                        <button type="button" class="btn btn-info">Detay</button>
+                        <button type="button" class="btn btn-info">Onayla</button>
+                    </td>
+                </tr>
+            }
+
 
         </tbody>
     </table>
