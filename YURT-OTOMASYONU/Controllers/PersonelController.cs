@@ -21,6 +21,10 @@ namespace YURT_OTOMASYONU.Controllers
             var model = db.Yardımlar.ToList();
             return PartialView("~/Views/Personel/_CallHelp.cshtml",model);
         }
+        public ActionResult PermissionList()
+        {
+            return PartialView("~/Views/Personel/_Permission.cshtml");
+        }
 
         public ActionResult AddFood()
         {

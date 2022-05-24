@@ -209,6 +209,7 @@
     <Content Include="Views\Student\_CallHelp.cshtml" />
     <Content Include="Views\Student\_EditPassword.cshtml" />
     <Content Include="Views\Personel\_CallHelp.cshtml" />
+    <Content Include="Views\Personel\_Permission.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

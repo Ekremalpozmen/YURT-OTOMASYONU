@@ -25,7 +25,15 @@
 
         <button type="button" class="btn btn-primary">Öğrenci Ekle</button>
 
-        <button type="button" class="btn btn-danger">İzin İsteyenler</button>
+
+        <a data-modal-form="true"
+           data-modal-size="modal-lg"
+           data-modal-title="İzin İsteyenler"
+           href="@Url.Action("PermissionList", "Personel", routeValues: new {Area = string.Empty})"
+           data-hook-beforeunload="true"
+           class="btn btn-danger">
+            İzin İsteyenler
+        </a>
 
         <button type="button" class="btn btn-warning">Ödemeler</button>
 
