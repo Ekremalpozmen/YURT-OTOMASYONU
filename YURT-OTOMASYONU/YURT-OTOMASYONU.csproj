@@ -211,6 +211,7 @@
     <Content Include="Views\Personel\_CallHelp.cshtml" />
     <Content Include="Views\Personel\_Permission.cshtml" />
     <Content Include="Views\Personel\_Payment.cshtml" />
+    <Content Include="Views\Personel\_NoPayment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

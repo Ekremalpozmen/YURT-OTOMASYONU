@@ -26,7 +26,7 @@ namespace YURT_OTOMASYONU.Controllers
            var model= db.Izinler.ToList();
             return PartialView("~/Views/Personel/_Permission.cshtml",model);
         }
-<<<<<<< HEAD
+ 
 
         public ActionResult Payment()
         {
@@ -35,12 +35,12 @@ namespace YURT_OTOMASYONU.Controllers
             return PartialView("~/Views/Personel/_Payment.cshtml", model);
         }
 
-=======
-        public ActionResult Payment()
+        public ActionResult NoPayment()
         {
-            return PartialView("~/Views/Personel/_Payment.cshtml");
+            //ödeme yapmayanlar
+            return PartialView("~/Views/Personel/_NoPayment.cshtml");
         }
->>>>>>> 34a90b3b36e2a6271f179ca0f3e566b6c87e05f8
+
         public ActionResult AddFood()
         {
             return View();

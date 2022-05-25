@@ -1,11 +1,16 @@
-<<<<<<< HEAD
+ 
 ﻿@model IEnumerable<YURT_OTOMASYONU.Data.Odemeler>
-
-=======
-﻿
->>>>>>> 34a90b3b36e2a6271f179ca0f3e566b6c87e05f8
+ 
 <div class="container">
-    <button style="margin-bottom:10px" class="btn btn-danger">Ödeme Yapmayanları Gör</button>
+    <a data-modal-form="true"
+       data-modal-size="modal-lg"
+       data-modal-title="Ödeme Yapmayanlar Listesi"
+       href="@Url.Action("NoPayment", "Personel", routeValues: new {Area = string.Empty})"
+       data-hook-beforeunload="true"
+       style="margin-bottom:10px"
+       class="btn btn-danger">
+        Ödeme Yapmayanları Gör
+    </a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -16,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
+ 
             @foreach (var item in Model)
             {
                 <tr>
@@ -26,15 +31,12 @@
                     <td>@item.Tutar</td>
                 </tr>
             }
-
-=======
-            <tr>
+                        <tr>
                 <td>isim</td>
                 <td>tc</td>
                 <td>ödeme tarihi</td>
                 <td>tutar</td>
             </tr>
->>>>>>> 34a90b3b36e2a6271f179ca0f3e566b6c87e05f8
-        </tbody>
+            </tbody>
     </table>
 </div>
