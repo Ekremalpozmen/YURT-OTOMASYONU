@@ -26,7 +26,10 @@ namespace YURT_OTOMASYONU.Controllers
            var model= db.Izinler.ToList();
             return PartialView("~/Views/Personel/_Permission.cshtml",model);
         }
-
+        public ActionResult Payment()
+        {
+            return PartialView("~/Views/Personel/_Payment.cshtml");
+        }
         public ActionResult AddFood()
         {
             return View();

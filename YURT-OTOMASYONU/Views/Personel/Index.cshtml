@@ -35,7 +35,14 @@
             İzin İsteyenler
         </a>
 
-        <button type="button" class="btn btn-warning">Ödemeler</button>
+        <a data-modal-form="true"
+           data-modal-size="modal-lg"
+           data-modal-title="Ödeme Yapanlar"
+           href="@Url.Action("Payment", "Personel", routeValues: new {Area = string.Empty})"
+           data-hook-beforeunload="true"
+           class="btn btn-warning">
+            Ödemeler
+        </a>
 
         <a data-modal-form="true"
            data-modal-size="modal-lg"
