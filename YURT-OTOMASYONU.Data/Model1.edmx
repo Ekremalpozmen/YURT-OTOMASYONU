@@ -52,6 +52,7 @@
           <Property Name="OgrenciId" Type="int" />
           <Property Name="OdemeTarihi" Type="datetime" />
           <Property Name="Tutar" Type="int" />
+          <Property Name="OdemeDurumu" Type="bit" />
         </EntityType>
         <EntityType Name="Ogrenci">
           <Key>
@@ -369,6 +370,7 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <Property Name="OdemeTarihi" Type="DateTime" Precision="3" />
           <Property Name="Tutar" Type="Int32" />
           <NavigationProperty Name="Ogrenci" Relationship="YurtOtomasyonModel.FK_Odemeler_Ogrenci" FromRole="Odemeler" ToRole="Ogrenci" />
+          <Property Name="OdemeDurumu" Type="Boolean" />
         </EntityType>
         <EntityType Name="Ogrenci">
           <Key>
@@ -595,6 +597,7 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <EntitySetMapping Name="Odemeler">
             <EntityTypeMapping TypeName="YurtOtomasyonModel.Odemeler">
               <MappingFragment StoreEntitySet="Odemeler">
+                <ScalarProperty Name="OdemeDurumu" ColumnName="OdemeDurumu" />
                 <ScalarProperty Name="Tutar" ColumnName="Tutar" />
                 <ScalarProperty Name="OdemeTarihi" ColumnName="OdemeTarihi" />
                 <ScalarProperty Name="OgrenciId" ColumnName="OgrenciId" />

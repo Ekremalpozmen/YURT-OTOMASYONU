@@ -1,0 +1,27 @@
+﻿@model IEnumerable<YURT_OTOMASYONU.Data.Odemeler>
+
+<div class="container">
+    <button style="margin-bottom:10px" class="btn btn-danger">Ödeme Yapmayanları Gör</button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ad Soyad</th>
+                <th>TC</th>
+                <th>Ödeme Tarihi</th>
+                <th>Tutar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Ogrenci.Ad @item.Ogrenci.Soyad</td>
+                    <td>@item.Ogrenci.TCKimlikNo</td>
+                    <td>@item.OdemeTarihi</td>
+                    <td>@item.Tutar</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

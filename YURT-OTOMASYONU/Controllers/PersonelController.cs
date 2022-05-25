@@ -27,6 +27,13 @@ namespace YURT_OTOMASYONU.Controllers
             return PartialView("~/Views/Personel/_Permission.cshtml",model);
         }
 
+        public ActionResult Payment()
+        {
+            //ödeme yapanlar
+            var model = db.Odemeler.Where(m => m.OdemeDurumu == true).ToList();
+            return PartialView("~/Views/Personel/_Payment.cshtml", model);
+        }
+
         public ActionResult AddFood()
         {
             return View();

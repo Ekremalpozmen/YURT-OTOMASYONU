@@ -18,6 +18,7 @@ namespace YURT_OTOMASYONU.Data
         public Nullable<int> OgrenciId { get; set; }
         public Nullable<System.DateTime> OdemeTarihi { get; set; }
         public Nullable<int> Tutar { get; set; }
+        public Nullable<bool> OdemeDurumu { get; set; }
     
         public virtual Ogrenci Ogrenci { get; set; }
     }
