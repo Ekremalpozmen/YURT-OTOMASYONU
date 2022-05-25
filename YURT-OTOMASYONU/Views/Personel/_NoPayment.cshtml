@@ -1,5 +1,6 @@
- <div class="container">
+﻿@model IEnumerable<YURT_OTOMASYONU.Data.Odemeler>
 
+<div class="container">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -10,12 +11,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>ad soyad</td>
-                <td>tc</td>
-                <td>Telefon Numarası</td>
-
-            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                <td>@item.Ogrenci.Ad @item.Ogrenci.Soyad</td>
+                <td>@item.Ogrenci.TCKimlikNo</td>
+                <td>@item.Ogrenci.OdaNo</td>
+                <td>@item.Ogrenci.TelefonNo</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

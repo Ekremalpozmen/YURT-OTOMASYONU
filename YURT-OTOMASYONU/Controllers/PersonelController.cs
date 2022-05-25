@@ -19,14 +19,14 @@ namespace YURT_OTOMASYONU.Controllers
         public ActionResult CallHelp()
         {
             var model = db.Yardımlar.ToList();
-            return PartialView("~/Views/Personel/_CallHelp.cshtml",model);
+            return PartialView("~/Views/Personel/_CallHelp.cshtml", model);
         }
         public ActionResult PermissionList()
         {
-           var model= db.Izinler.ToList();
-            return PartialView("~/Views/Personel/_Permission.cshtml",model);
+            var model = db.Izinler.ToList();
+            return PartialView("~/Views/Personel/_Permission.cshtml", model);
         }
- 
+
 
         public ActionResult Payment()
         {
@@ -38,7 +38,8 @@ namespace YURT_OTOMASYONU.Controllers
         public ActionResult NoPayment()
         {
             //ödeme yapmayanlar
-            return PartialView("~/Views/Personel/_NoPayment.cshtml");
+            var model = db.Odemeler.Where(m => m.OdemeDurumu == false).ToList();
+            return PartialView("~/Views/Personel/_NoPayment.cshtml", model);
         }
 
         public ActionResult AddFood()
