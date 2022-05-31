@@ -212,6 +212,7 @@
     <Content Include="Views\Personel\_Permission.cshtml" />
     <Content Include="Views\Personel\_Payment.cshtml" />
     <Content Include="Views\Personel\_NoPayment.cshtml" />
+    <Content Include="Views\Personel\_AddStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

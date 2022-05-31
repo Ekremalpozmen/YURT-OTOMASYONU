@@ -23,7 +23,14 @@
     </div>
     <div style="margin-top:30px;margin-left:10px">
 
-        <button type="button" class="btn btn-primary">Öğrenci Ekle</button>
+        <a data-modal-form="true"
+           data-modal-size="modal-lg"
+           data-modal-title="Öğrenci Ekle"
+           href="@Url.Action("AddStudent", "Personel", routeValues: new {Area = string.Empty})"
+           data-hook-beforeunload="true"
+           class="btn btn-primary">
+            Öğrenci Ekle
+        </a>
 
 
         <a data-modal-form="true"

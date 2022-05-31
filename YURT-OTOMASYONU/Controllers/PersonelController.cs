@@ -41,7 +41,10 @@ namespace YURT_OTOMASYONU.Controllers
             var model = db.Odemeler.Where(m => m.OdemeDurumu == false).ToList();
             return PartialView("~/Views/Personel/_NoPayment.cshtml", model);
         }
-
+        public ActionResult AddStudent()
+        {
+            return PartialView("~/Views/Personel/_AddStudent.cshtml");
+        }
         public ActionResult AddFood()
         {
             return View();
