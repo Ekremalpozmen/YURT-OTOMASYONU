@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using YURT_OTOMASYONU.Data;
+using YURT_OTOMASYONU.ViewModels.Personel;
 
 namespace YURT_OTOMASYONU.Controllers
 {
@@ -44,6 +45,36 @@ namespace YURT_OTOMASYONU.Controllers
         public ActionResult AddStudent()
         {
             return PartialView("~/Views/Personel/_AddStudent.cshtml");
+        }
+        [HttpPost]
+        public ActionResult AddStudent(StudentAddViewModel model)
+        {
+            var student = new Ogrenci
+            {
+                Ad = model.Ad,
+                Soyad = model.Soyad,
+                TCKimlikNo = model.TCKimlikNo,
+                KanGrubu = model.KanGrubu,
+                Il = model.Il,
+                Ilce=model.Ilce,
+                DogumYeri=model.DogumYeri,
+                DogumTarihi = model.DogumTarihi,
+                AnneAdi=model.AnneAdi,
+                BabaAdi=model.BabaAdi,
+                TelefonNo = model.TelefonNo,
+                Adres = model.Adres,
+                Okul = model.Okul,
+                Bölüm = model.Bölüm,
+                Fakülte = model.Fakülte,
+                GirisTarihi = model.GirisTarihi,
+                Email = model.Email,
+                KullaniciAdi = model.KullaniciAdi,
+                Sifre = model.Sifre,
+                OdaNo = model.OdaNo,
+            };
+            db.Ogrenci.Add(student);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
         public ActionResult AddFood()
         {
