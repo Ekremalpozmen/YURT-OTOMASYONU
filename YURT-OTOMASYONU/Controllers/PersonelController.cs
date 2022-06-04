@@ -14,7 +14,8 @@ namespace YURT_OTOMASYONU.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var ogrenciler = db.Ogrenci.ToList();
+            return View(ogrenciler);
         }
 
         public ActionResult CallHelp()
