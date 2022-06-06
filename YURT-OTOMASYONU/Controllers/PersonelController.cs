@@ -78,10 +78,11 @@ namespace YURT_OTOMASYONU.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult PermissionDetail()
+        public ActionResult PermissionDetail(int izinId)
         {
             //izin detayı
-            return PartialView("~/Views/Personel/_PermissionDetail.cshtml");
+            var model = db.Izinler.FirstOrDefault(x => x.Id == izinId);
+            return PartialView("~/Views/Personel/_PermissionDetail.cshtml",model);
         }
 
         public ActionResult AddFood()

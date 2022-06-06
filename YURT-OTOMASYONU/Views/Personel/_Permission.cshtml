@@ -20,7 +20,7 @@
                         <a data-modal-form="true"
                            data-modal-size="modal-lg"
                            data-modal-title="İzin Detayı"
-                           href="@Url.Action("PermissionDetail", "Personel", routeValues: new {Area = string.Empty})"
+                           href="@Url.Action("PermissionDetail", "Personel", routeValues: new {Area = string.Empty,izinId=item.Id})"
                            data-hook-beforeunload="true"
                            class="btn btn-info">
                             Detay
