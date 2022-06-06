@@ -17,7 +17,14 @@
                     <td>@item.Ogrenci.Ad @item.Ogrenci.Soyad</td>
                     <td>@item.Ogrenci.TCKimlikNo</td>
                     <td style="text-align-last:center">
-                        <button type="button" class="btn btn-info">Detay</button>
+                        <a data-modal-form="true"
+                           data-modal-size="modal-lg"
+                           data-modal-title="İzin Detayı"
+                           href="@Url.Action("PermissionDetail", "Personel", routeValues: new {Area = string.Empty})"
+                           data-hook-beforeunload="true"
+                           class="btn btn-info">
+                            Detay
+                        </a>
                         <button type="button" class="btn btn-info">Onayla</button>
                     </td>
                 </tr>

@@ -77,6 +77,13 @@ namespace YURT_OTOMASYONU.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult PermissionDetail()
+        {
+            //izin detayı
+            return PartialView("~/Views/Personel/_PermissionDetail.cshtml");
+        }
+
         public ActionResult AddFood()
         {
             return View();
