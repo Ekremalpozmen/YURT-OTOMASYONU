@@ -142,5 +142,14 @@ namespace YURT_OTOMASYONU.Controllers
         }
 
 
+        public ActionResult DayFood()
+        {
+            var model = db.YemekListesi.Where(x=>x.Tarih==DateTime.Today).ToList();
+            if(model.Count==0)
+            {
+                ViewBag.YemekYok = "Günün Yemeği Henüz Girilmemiş";
+            }
+            return PartialView("~/Views/Student/_DayFood.cshtml",model);
+        }
     }
 }

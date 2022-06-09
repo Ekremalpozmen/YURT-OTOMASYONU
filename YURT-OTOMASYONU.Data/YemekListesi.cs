@@ -19,5 +19,6 @@ namespace YURT_OTOMASYONU.Data
         public string Yemek2 { get; set; }
         public string Yemek3 { get; set; }
         public string Yemek4 { get; set; }
+        public Nullable<System.DateTime> Tarih { get; set; }
     }
 }

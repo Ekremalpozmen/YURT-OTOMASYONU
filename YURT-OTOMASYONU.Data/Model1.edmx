@@ -138,6 +138,7 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <Property Name="Yemek2" Type="nvarchar" MaxLength="50" />
           <Property Name="Yemek3" Type="nvarchar" MaxLength="50" />
           <Property Name="Yemek4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tarih" Type="datetime" />
         </EntityType>
         <Association Name="FK_Envanter_EnvanterListesi">
           <End Role="EnvanterListesi" Type="Self.EnvanterListesi" Multiplicity="0..1" />
@@ -239,7 +240,8 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
     [YemekListesi].[Yemek1] AS [Yemek1], 
     [YemekListesi].[Yemek2] AS [Yemek2], 
     [YemekListesi].[Yemek3] AS [Yemek3], 
-    [YemekListesi].[Yemek4] AS [Yemek4]
+    [YemekListesi].[Yemek4] AS [Yemek4], 
+    [YemekListesi].[Tarih] AS [Tarih]
     FROM [dbo].[YemekListesi] AS [YemekListesi]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Envanter_EnvanterListesi" Association="Self.FK_Envanter_EnvanterListesi">
@@ -460,6 +462,7 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <Property Name="Yemek2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Yemek3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Yemek4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Envanter_EnvanterListesi">
           <End Type="YurtOtomasyonModel.EnvanterListesi" Role="EnvanterListesi" Multiplicity="0..1" />
@@ -685,6 +688,7 @@ warning 6002: The table/view 'YurtOtomasyon.dbo.YemekListesi' does not have a pr
           <EntitySetMapping Name="YemekListesi">
             <EntityTypeMapping TypeName="YurtOtomasyonModel.YemekListesi">
               <MappingFragment StoreEntitySet="YemekListesi">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
                 <ScalarProperty Name="Yemek4" ColumnName="Yemek4" />
                 <ScalarProperty Name="Yemek3" ColumnName="Yemek3" />
                 <ScalarProperty Name="Yemek2" ColumnName="Yemek2" />
