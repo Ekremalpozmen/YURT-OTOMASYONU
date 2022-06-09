@@ -3,7 +3,6 @@
 <html lang="tr" dir="ltr">
 <head>
     <meta charset="utf-8" />
-    <title>LoginPage</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous"></script>
@@ -11,46 +10,70 @@
 </head>
 <body>
     <div class="container">
-        <h2 style="text-align:left">Hoşgeldin:@HttpContext.Current.User.Identity.Name</h2>
-        <br />
-        @*Örnek Kod*@
-        <a data-modal-form="true"
-           data-modal-size="modal-xl"
-           data-modal-title="İzin işlemleri"
-           href="@Url.Action("Permission", "Student", routeValues: new {Area = string.Empty})"
-           data-hook-beforeunload="true"
-           class="button">
-            İzin işlemleri
-        </a>
+        <div style="margin-top:10px" class="row">
+            <div class="col">
+                <a data-modal-form="true"
+                   data-modal-size="modal-xl"
+                   data-modal-title="İzin işlemleri"
+                   href="@Url.Action("Permission", "Student", routeValues: new {Area = string.Empty})"
+                   data-hook-beforeunload="true"
+                   class="button">
+                    İzin işlemleri
+                </a>
+            </div>
+            <div class="col">
+                <a data-modal-form="true"
+                   data-modal-size="modal-xl"
+                   data-modal-title="Ödeme Yap"
+                   href="@Url.Action("Payment", "Student", routeValues: new {Area = string.Empty})"
+                   data-hook-beforeunload="true"
+                   class="button">
+                    Ödeme Yap
+                </a>
+            </div>
+        </div>
 
-        <a data-modal-form="true"
-           data-modal-size="modal-xl"
-           data-modal-title="Ödeme Yap"
-           href="@Url.Action("Payment", "Student", routeValues: new {Area = string.Empty})"
-           data-hook-beforeunload="true"
-           class="button">
-            Ödeme Yap
-        </a>
-        <a data-modal-form="true"
-           data-modal-size="modal-xl"
-           data-modal-title="Yardım Çağır"
-           href="@Url.Action("CallHelp", "Student", routeValues: new {Area = string.Empty})"
-           data-hook-beforeunload="true"
-           class="button">
-            Yardım Çağır
-        </a>
-        <a data-modal-form="true"
-           data-modal-size="modal-xl"
-           data-modal-title="Şifre Değiştir"
-           href="@Url.Action("EditPassword", "Student", routeValues: new {Area = string.Empty})"
-           data-hook-beforeunload="true"
-           class="şifre">
-            Şifre Değiştir
-        </a>
-        <a href="@Url.Action("Profile","Student", routeValues: new {Area = string.Empty,ogrenciId=ViewBag.OgrenciId})" class="şifre">Profil</a>
-        <a href="@Url.Action("Logout","Login")" class="şifre">Çıkış Yap</a>
+        <div style="margin-top:10px" class="row">
+            <div class="col">
+                <a data-modal-form="true"
+                   data-modal-size="modal-xl"
+                   data-modal-title="Yardım Çağır"
+                   href="@Url.Action("CallHelp", "Student", routeValues: new {Area = string.Empty})"
+                   data-hook-beforeunload="true"
+                   class="button">
+                    Yardım Çağır
+                </a>
+            </div>
+            <div class="col">
+                <a data-modal-form="true"
+                   data-modal-size="modal-xl"
+                   data-modal-title="Şifre Değiştir"
+                   href="@Url.Action("EditPassword", "Student", routeValues: new {Area = string.Empty})"
+                   data-hook-beforeunload="true"
+                   class="button">
+                    Şifre Değiştir
+                </a>
+            </div>
 
+        </div>
+        <div style="margin-top:10px" class="row">
+            <div class="col">
+                <a data-modal-form="true"
+                   data-modal-size="modal-xl"
+                   data-modal-title="Günün Yemeği"
+                   href="@Url.Action("DayFood", "Student", routeValues: new {Area = string.Empty})"
+                   data-hook-beforeunload="true"
+                   class="button">
+                    Günün Yemeği
+                </a>
+            </div>
+            <div class="col">
+                <a href="@Url.Action("Profile","Student", routeValues: new {Area = string.Empty,ogrenciId=ViewBag.OgrenciId})" class="button">Profil</a>
+                <a style="margin-top:10px;margin-bottom:10px" href="@Url.Action("Logout","Login")" class="button">Çıkış Yap</a>
+            </div>
+        </div>
     </div>
+    
 </body>
 </html>
 

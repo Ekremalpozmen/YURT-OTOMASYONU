@@ -89,5 +89,10 @@ namespace YURT_OTOMASYONU.Controllers
         {
             return View();
         }
+
+        public ActionResult DayFood()
+        {
+            return PartialView("~/Views/Student/_DayFood.cshtml");
+        }
     }
 }
