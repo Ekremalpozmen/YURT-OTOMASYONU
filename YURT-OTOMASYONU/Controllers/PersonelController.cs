@@ -77,7 +77,10 @@ namespace YURT_OTOMASYONU.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public ActionResult EditStudent(int ogrenciId)
+        {
+            return PartialView("~/Views/Personel/_EditStudent.cshtml");
+        }
         public ActionResult PermissionDetail(int izinId)
         {
             //izin detayı

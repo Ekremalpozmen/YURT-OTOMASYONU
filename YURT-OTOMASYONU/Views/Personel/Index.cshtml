@@ -81,16 +81,22 @@
                             <td>@item.OdaNo</td>
                             <td>
                                 <button type="button" class="btn btn-info">Sil</button>
-                                <button type="button" class="btn btn-info">Düzenle</button>
+                                <a data-modal-form="true"
+                                   data-modal-size="modal-xl"
+                                   data-modal-title="Öğrenci Düzenle"
+                                   href="@Url.Action("EditStudent","Personel",routeValues: new {ogrenciId = item.Id})"
+                                   class="btn btn-info  ">
+                                    Düzenle
+                                </a>
                             </td>
-                        
+
 
                         </tr>
                     }
-                    </tbody>
+                </tbody>
             </table>
         </div>
-    </div>  
+    </div>
 </body>
 </html>
 
