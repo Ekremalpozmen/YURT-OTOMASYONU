@@ -1,74 +1,106 @@
-﻿
-<div class="col-xl-12">
-    <div class="form-group">
-        Ad
+﻿@model YURT_OTOMASYONU.Data.Ogrenci
+@using (Html.BeginForm("EditStudent", "Personel", new { Area = String.Empty }, FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+    <div class="col-xl-12">
+        <div class="form-group">
+            Ad
+            @Html.TextBoxFor(m => m.Ad, new { @class = "form-control", placeholder = "Ad giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            Soyad
+            @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control", placeholder = "Soyad giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            TCKimlikNo
+            @Html.TextBoxFor(m => m.TCKimlikNo, new { @class = "form-control", placeholder = "TCKimlikNo giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            KanGrubu
+            @Html.TextBoxFor(m => m.KanGrubu, new { @class = "form-control", placeholder = "KanGrubu giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            Il
+            @Html.TextBoxFor(m => m.Il, new { @class = "form-control", placeholder = "Il giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            Ilce
+            @Html.TextBoxFor(m => m.Ilce, new { @class = "form-control", placeholder = "Ilce giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            DogumYeri
+            @Html.TextBoxFor(m => m.DogumYeri, new { @class = "form-control", placeholder = "Doğum Yeri giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            Doğum Tarihi
+            @Html.TextBoxFor(x => x.DogumTarihi, "{0:yyyy-MM-ddTHH:mm:ss}", new
+                      {
+                          @class = "form-control",
+                          required = "required",
+                          @type = "datetime-local"
+                      })
+        </div>
+        <div class="form-group">
+            AnneAdi
+            @Html.TextBoxFor(m => m.AnneAdi, new { @class = "form-control", placeholder = "Anne adı  giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            BabaAdi
+            @Html.TextBoxFor(m => m.BabaAdi, new { @class = "form-control", placeholder = "Baba adı giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            TelefonNo
+            @Html.TextBoxFor(m => m.TelefonNo, new { @class = "form-control", placeholder = "Telefon No giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            Adres
+            @Html.TextBoxFor(m => m.Adres, new { @class = "form-control", placeholder = "Adres giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            Okul
+            @Html.TextBoxFor(m => m.Okul, new { @class = "form-control", placeholder = "OKul giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            Bölüm
+            @Html.TextBoxFor(m => m.Bölüm, new { @class = "form-control", placeholder = "Bölüm giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            Fakülte
+            @Html.TextBoxFor(m => m.Fakülte, new { @class = "form-ckontrol", placeholder = "Fakülte giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            GirisTarihi
+            @Html.TextBoxFor(x => x.GirisTarihi, "{0:yyyy-MM-ddTHH:mm:ss}", new
+                     {
+                         @class = "form-control",
+                         required = "required",
+                         @type = "datetime-local"
+                     })
+        </div>
+        <div class="form-group">
+            Email
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            KullaniciAdi
+            @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı Adı giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            Sifre
+            @Html.TextBoxFor(m => m.Sifre, new { @class = "form-control", placeholder = "Şifre giriniz", required = "required" })
+        </div>
+        <div class="form-group">
+            OdaNo
+            @Html.TextBoxFor(m => m.OdaNo, new { @class = "form-control", placeholder = "Oda No giriniz", required = "required" })
+        </div>
     </div>
-    <div class="form-group">
-        Soyad
+    <hr />
+    <div style="justify-content: right" class="form-group form-group-sm row">
+        <div class="col-xs-12">
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal"><span style="color: white" class="fa fa-times"></span>&nbsp;&nbsp;Vazgeç</button>
+            <button type="submit" class="btn btn-success"><span style="color: white" class="fa fa-check"></span>&nbsp;&nbsp;Kaydet</button>
+        </div>
     </div>
-    <div class="form-group">
-        TCKimlikNo
-    </div>
-    <div class="form-group">
-        KanGrubu
-    </div>
-    <div class="form-group">
-        Il
-    </div>
-    <div class="form-group">
-        Ilce
-    </div>
-    <div class="form-group">
-        DogumYeri
-    </div>
-    <div class="form-group">
-        DogumYeri
-    </div>
-    <div class="form-group">
-        AnneAdi
-    </div>
-    <div class="form-group">
-        BabaAdi
-    </div>
-    <div class="form-group">
-        TelefonNo
-    </div>
-    <div class="form-group">
-        Adres
-    </div>
-    <div class="form-group">
-        Okul
-    </div>
-    <div class="form-group">
-        Bölüm
-    </div>
-    <div class="form-group">
-        Fakülte
-    </div>
-    <div class="form-group">
-        <label>Giriş Tarihi</label>
-
-        GirisTarihi
-    </div>
-    <div class="form-group">
-        Email
-    </div>
-    <div class="form-group">
-        KullaniciAdi
-    </div>
-    <div class="form-group">
-        Sifre
-    </div>
-    <div class="form-group">
-        OdaNo
-    </div>
-</div>
-<hr />
-<div style="justify-content: right" class="form-group form-group-sm row">
-    <div class="col-xs-12">
-        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal"><span style="color: white" class="fa fa-times"></span>&nbsp;&nbsp;Vazgeç</button>
-        <button type="submit" class="btn btn-success"><span style="color: white" class="fa fa-check"></span>&nbsp;&nbsp;Kaydet</button>
-    </div>
-</div>
-<div class="clearfix"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+    <div class="clearfix"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+}

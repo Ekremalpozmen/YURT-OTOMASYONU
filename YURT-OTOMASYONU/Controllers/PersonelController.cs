@@ -57,11 +57,11 @@ namespace YURT_OTOMASYONU.Controllers
                 TCKimlikNo = model.TCKimlikNo,
                 KanGrubu = model.KanGrubu,
                 Il = model.Il,
-                Ilce=model.Ilce,
-                DogumYeri=model.DogumYeri,
+                Ilce = model.Ilce,
+                DogumYeri = model.DogumYeri,
                 DogumTarihi = model.DogumTarihi,
-                AnneAdi=model.AnneAdi,
-                BabaAdi=model.BabaAdi,
+                AnneAdi = model.AnneAdi,
+                BabaAdi = model.BabaAdi,
                 TelefonNo = model.TelefonNo,
                 Adres = model.Adres,
                 Okul = model.Okul,
@@ -79,13 +79,47 @@ namespace YURT_OTOMASYONU.Controllers
         }
         public ActionResult EditStudent(int ogrenciId)
         {
-            return PartialView("~/Views/Personel/_EditStudent.cshtml");
+            var model = db.Ogrenci.FirstOrDefault(x => x.Id == ogrenciId);
+            return PartialView("~/Views/Personel/_EditStudent.cshtml", model);
         }
+
+        [HttpPost]
+        public ActionResult EditStudent(Ogrenci ogrenci)
+        {
+            
+            var editStudent=db.Ogrenci.FirstOrDefault(x => x.Id == ogrenci.Id);
+            editStudent.Ad = ogrenci.Ad;
+            editStudent.Soyad = ogrenci.Soyad;
+            editStudent.TCKimlikNo = ogrenci.TCKimlikNo;
+            editStudent.KanGrubu = ogrenci.KanGrubu;
+            editStudent.Il = ogrenci.Il;
+            editStudent.Ilce = ogrenci.Ilce;
+            editStudent.DogumYeri = ogrenci.DogumYeri;
+            editStudent.DogumTarihi = ogrenci.DogumTarihi;
+            editStudent.AnneAdi = ogrenci.AnneAdi;
+            editStudent.BabaAdi = ogrenci.BabaAdi;
+            editStudent.TelefonNo = ogrenci.TelefonNo;
+            editStudent.Adres = ogrenci.Adres;
+            editStudent.Okul = ogrenci.Okul;
+            editStudent.Bölüm = ogrenci.Bölüm;
+            editStudent.Fakülte = ogrenci.Fakülte;
+            editStudent.GirisTarihi = ogrenci.GirisTarihi;
+            editStudent.Email = ogrenci.Email;
+            editStudent.KullaniciAdi = ogrenci.KullaniciAdi;
+            editStudent.Sifre = ogrenci.Sifre;
+            editStudent.OdaNo = ogrenci.OdaNo;
+
+            db.SaveChanges();
+            
+            return RedirectToAction("Index");
+        }
+
+
         public ActionResult PermissionDetail(int izinId)
         {
             //izin detayı
             var model = db.Izinler.FirstOrDefault(x => x.Id == izinId);
-            return PartialView("~/Views/Personel/_PermissionDetail.cshtml",model);
+            return PartialView("~/Views/Personel/_PermissionDetail.cshtml", model);
         }
 
         public ActionResult AddFood()
