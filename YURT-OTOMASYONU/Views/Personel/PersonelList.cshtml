@@ -1,5 +1,5 @@
 ﻿
-@model List<YURT_OTOMASYONU.Data.Ogrenci>
+@model List<YURT_OTOMASYONU.Data.Personel>
 
 
 
@@ -45,14 +45,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>ad soyad</td>
-                        <td>tc</td>
-                        <td>
-                            <button type="button" class="btn btn-info">Sil</button>
-                            <button type="button" class="btn btn-info">Düzenle</button>
-                        </td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Ad @item.Soyad</td>
+                            <td>@item.TCKimlikNo</td>
+                            <td>
+                                <button type="button" class="btn btn-info">Sil</button>
+                                <button type="button" class="btn btn-info">Düzenle</button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

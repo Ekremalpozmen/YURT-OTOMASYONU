@@ -86,8 +86,8 @@ namespace YURT_OTOMASYONU.Controllers
         [HttpPost]
         public ActionResult EditStudent(Ogrenci ogrenci)
         {
-            
-            var editStudent=db.Ogrenci.FirstOrDefault(x => x.Id == ogrenci.Id);
+
+            var editStudent = db.Ogrenci.FirstOrDefault(x => x.Id == ogrenci.Id);
             editStudent.Ad = ogrenci.Ad;
             editStudent.Soyad = ogrenci.Soyad;
             editStudent.TCKimlikNo = ogrenci.TCKimlikNo;
@@ -110,7 +110,7 @@ namespace YURT_OTOMASYONU.Controllers
             editStudent.OdaNo = ogrenci.OdaNo;
 
             db.SaveChanges();
-            
+
             return RedirectToAction("Index");
         }
 
@@ -129,7 +129,8 @@ namespace YURT_OTOMASYONU.Controllers
 
         public ActionResult PersonelList()
         {
-            return View();
+            var model = db.Personel.ToList();
+            return View(model);
         }
 
     }
