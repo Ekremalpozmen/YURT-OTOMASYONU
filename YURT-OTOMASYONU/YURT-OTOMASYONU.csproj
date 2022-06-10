@@ -216,6 +216,7 @@
     <Content Include="Views\Personel\_PermissionDetail.cshtml" />
     <Content Include="Views\Student\_DayFood.cshtml" />
     <Content Include="Views\Personel\_EditStudent.cshtml" />
+    <Content Include="Views\Personel\PersonelList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

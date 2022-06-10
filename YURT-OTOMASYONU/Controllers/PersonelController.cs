@@ -127,5 +127,10 @@ namespace YURT_OTOMASYONU.Controllers
             return View();
         }
 
+        public ActionResult PersonelList()
+        {
+            return View();
+        }
+
     }
 }

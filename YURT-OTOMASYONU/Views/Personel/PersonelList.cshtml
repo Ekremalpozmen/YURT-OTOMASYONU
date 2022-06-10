@@ -1,0 +1,64 @@
+﻿
+@model List<YURT_OTOMASYONU.Data.Ogrenci>
+
+
+
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <title>LoginPage</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <script src="~/Scripts/custom.modal.form.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+<body>
+    <div style="margin-top:100px;margin-left:10px" class="btn-group">
+        <a href="@Url.Action("Index", "Personel", routeValues: new {Area = string.Empty})" style="margin-right:10px" class="btn btn-success">Öğrenciler</a>
+        <div class="vr"></div>
+        <a href="@Url.Action("PersonelList", "Personel", routeValues: new {Area = string.Empty})" class="btn btn-success">Personeller</a>
+    </div>
+    <div style="margin-top:30px;margin-left:10px">
+        <a data-modal-form="true"
+           data-modal-size="modal-lg"
+           data-modal-title="Öğrenci Ekle"
+           href="@Url.Action(" ", "Personel", routeValues: new {Area = string.Empty})"
+           data-hook-beforeunload="true"
+           class="btn btn-primary">
+            Personel Ekle
+        </a>
+
+        <div style="margin-top:20px" class="container">
+            <h5>
+                Personel Listesi
+            </h5>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Ad Soyad</th>
+                        <th>TC</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ad soyad</td>
+                        <td>tc</td>
+                        <td>
+                            <button type="button" class="btn btn-info">Sil</button>
+                            <button type="button" class="btn btn-info">Düzenle</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
