@@ -35,8 +35,9 @@
             <h5>
                 Personel Listesi
             </h5>
-
-            <table class="table table-bordered">
+            Personel Ara:<input id="txtPersonelName" type="text" />
+            <button id="sendSearch">Ara</button>
+            <table id="tblCustomers" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Ad Soyad</th>
@@ -65,3 +66,36 @@
 
 
 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $("#sendSearch").click(function () {
+            GetPersonel();
+        });
+    });
+    function GetPersonel() {
+        var PersonelName = $.trim($("#txtPersonelName").val());
+        $.ajax({
+            type: "POST",
+            url: "/Personel/SearchPersonel",
+            data: "{personelName:'" + PersonelName + "'}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (personel) {
+                var table = $("#tblCustomers");
+                table.find("tr:not(:first)").remove();
+                $.each(personel, function (i, customer) {
+                    var table = $("#tblCustomers");
+                    var row = table[0].insertRow(-1);
+                    $(row).append("<td />");
+                    $(row).find("td").eq(0).html(customer.Ad);
+                    $(row).append("<td />");
+                    $(row).find("td").eq(1).html(customer.TCKimlikNo);
+                    $(row).append("<td />");
+                    $(row).find("td").eq(2).append('<button style=margin-right:10px type="button" class="btn btn-info">Sil</button><button type = "button" class= "btn btn-info"> Düzenle</button>');
+                });
+            }
+        });
+    }
+</script>

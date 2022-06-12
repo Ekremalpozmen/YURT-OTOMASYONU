@@ -133,5 +133,13 @@ namespace YURT_OTOMASYONU.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public JsonResult SearchPersonel(string personelName)
+        {
+
+            var personel = db.Personel.Where(x => x.Ad == personelName).ToList();
+            return Json(personel);
+        }
+
     }
 }
