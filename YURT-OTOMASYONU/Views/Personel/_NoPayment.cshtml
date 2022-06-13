@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<YURT_OTOMASYONU.Data.Odemeler>
 
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+
+
 <div class="container">
-    <table class="table table-bordered">
+    <table id="odemeYapmayanlar" class="table table-bordered">
         <thead>
             <tr>
                 <th>Ad Soyad</th>
@@ -14,27 +21,23 @@
             @foreach (var item in Model)
             {
                 <tr>
-                <td>@item.Ogrenci.Ad @item.Ogrenci.Soyad</td>
-                <td>@item.Ogrenci.TCKimlikNo</td>
-                <td>@item.Ogrenci.OdaNo</td>
-                <td>@item.Ogrenci.TelefonNo</td>
+                    <td>@item.Ogrenci.Ad @item.Ogrenci.Soyad</td>
+                    <td>@item.Ogrenci.TCKimlikNo</td>
+                    <td>@item.Ogrenci.OdaNo</td>
+                    <td>@item.Ogrenci.TelefonNo</td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-<nav style="align-items:center">
-    <ul style="place-content: center" class="pagination">
-        <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Geri</a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item ">
-            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">İleri</a>
-        </li>
-    </ul>
-</nav>
+
+
+<script>
+    $(document).ready(function () {
+        $('#odemeYapmayanlar').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
