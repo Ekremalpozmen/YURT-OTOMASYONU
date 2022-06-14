@@ -1,7 +1,4 @@
-﻿
-@model List<YURT_OTOMASYONU.Data.Ogrenci>
-
-
+﻿@model List<YURT_OTOMASYONU.Data.Ogrenci>
 
 <!DOCTYPE html>
 <html lang="tr" dir="ltr">
@@ -11,9 +8,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script src="~/Scripts/custom.modal.form.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
 </head>
 <body>
     <div style="margin-top:100px;margin-left:10px" class="btn-group">
@@ -63,7 +62,7 @@
         </a>
 
         <div style="margin-top:20px" class="container">
-            <table class="table table-bordered">
+            <table id="ogrenciler" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Ad Soyad</th>
@@ -90,35 +89,20 @@
                                     Düzenle
                                 </a>
                             </td>
-<<<<<<< Updated upstream
-
-
-=======
-                        
->>>>>>> Stashed changes
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
     </div>
-    <nav style="align-items:center">
-        <ul style="place-content: center" class="pagination">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Geri</a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item ">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">İleri</a>
-            </li>
-        </ul>
-    </nav>
 </body>
 </html>
-
-
-
+<script>
+    $(document).ready(function () {
+        $('#ogrenciler').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
