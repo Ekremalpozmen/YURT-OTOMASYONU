@@ -122,6 +122,16 @@ namespace YURT_OTOMASYONU.Controllers
             return PartialView("~/Views/Personel/_PermissionDetail.cshtml", model);
         }
 
+        [HttpPost]
+        public ActionResult DeleteStudent(int id)
+        {
+            var deleteStudent = db.Ogrenci.FirstOrDefault(x => x.Id == id);
+            db.Ogrenci.Remove(deleteStudent);
+            db.SaveChanges();
+            return View();
+        }
+
+
         public ActionResult AddFood()
         {
             return View();

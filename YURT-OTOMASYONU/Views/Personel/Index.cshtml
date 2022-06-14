@@ -74,35 +74,52 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
+        <tr>
 
-                            <td>@item.Ad @item.Soyad</td>
-                            <td>@item.TCKimlikNo</td>
-                            <td>@item.OdaNo</td>
-                            <td>
-                                <button type="button" class="btn btn-info">Sil</button>
-                                <a data-modal-form="true"
-                                   data-modal-size="modal-xl"
-                                   data-modal-title="Öğrenci Düzenle"
-                                   href="@Url.Action("EditStudent","Personel",routeValues: new {ogrenciId = item.Id})"
-                                   class="btn btn-info  ">
-                                    Düzenle
-                                </a>
-                            </td>
-                        </tr>
-                    }
+            <td>@item.Ad @item.Soyad</td>
+            <td>@item.TCKimlikNo</td>
+            <td>@item.OdaNo</td>
+            <td>
+                <button data-id="@item.Id" type="button" class="btn btn-info ogrenciSıl">Sil</button>
+                <a data-modal-form="true"
+                   data-modal-size="modal-xl"
+                   data-modal-title="Öğrenci Düzenle"
+                   href="@Url.Action("EditStudent","Personel",routeValues: new {ogrenciId = item.Id})"
+                   class="btn btn-info  ">
+                    Düzenle
+                </a>
+            </td>
+        </tr>}
                 </tbody>
             </table>
         </div>
     </div>
 </body>
 </html>
-<script>
-    $(document).ready(function () {
+<script>$(document).ready(function () {
         $('#ogrenciler').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
             }
         });
+    });</script>
+
+<script>
+    $(".ogrenciSıl").click(function () {
+        var ogrenciId = $(this).attr("data-id");
+        var confirmDelete = confirm('Öğrenciyi silmek istediğinizden emin misiniz?');
+        if (confirmDelete) {
+            $.ajax({
+                  type: "POST",
+                 url: '@Url.Action("DeleteStudent", "Personel")',
+                data: JSON.stringify({ 'id': ogrenciId }),
+             contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    if (result.success) {
+                        alert("ogrenci silindi");
+                    }
+                }
+            });
+        }
     });
 </script>
