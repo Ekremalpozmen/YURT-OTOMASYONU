@@ -12,6 +12,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script src="~/Scripts/custom.modal.form.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
@@ -25,8 +28,8 @@
     <div style="margin-top:30px;margin-left:10px">
         <a data-modal-form="true"
            data-modal-size="modal-lg"
-           data-modal-title="Öğrenci Ekle"
-           href="@Url.Action(" ", "Personel", routeValues: new {Area = string.Empty})"
+           data-modal-title="Personel Ekle"
+           href="@Url.Action("AddPersonel", "Personel", routeValues: new {Area = string.Empty})"
            data-hook-beforeunload="true"
            class="btn btn-primary">
             Personel Ekle
@@ -65,10 +68,6 @@
 
 
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="~/Scripts/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <script>
     $(document).ready(function () {
         $('#tblCustomers').DataTable({

@@ -167,6 +167,11 @@ namespace YURT_OTOMASYONU.Controllers
             return View(model);
         }
 
+        public ActionResult AddPersonel()
+        {
+            return PartialView("~/Views/Personel/_AddPersonel.cshtml");
+        }
+
         [HttpPost]
         public JsonResult SearchPersonel(string personelName)
         {

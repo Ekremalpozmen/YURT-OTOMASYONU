@@ -217,6 +217,7 @@
     <Content Include="Views\Personel\_EditStudent.cshtml" />
     <Content Include="Views\Personel\PersonelList.cshtml" />
     <Content Include="Views\Personel\_AddFood.cshtml" />
+    <Content Include="Views\Personel\_AddPersonel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
