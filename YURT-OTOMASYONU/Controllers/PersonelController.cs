@@ -173,6 +173,14 @@ namespace YURT_OTOMASYONU.Controllers
         }
 
         [HttpPost]
+        public ActionResult AddPersonel(Personel personel)
+        {
+            db.Personel.Add(personel);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         public JsonResult SearchPersonel(string personelName)
         {
 
