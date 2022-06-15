@@ -33,7 +33,10 @@
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre Giriniz", required = "required" })
                         <span></span>
                     </div>
-                    <div class="pass">Şifremi Unuttum</div>
+                    <div class="pass">
+                        <a href="@Url.Action("ForgotPassword","Login")">
+                            Şifremi Unuttum
+                        </a></div>
                     <label class="switch">
                         @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input slider round", type = "checkbox" })
                         <span class="slider round"></span>
