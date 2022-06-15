@@ -1,4 +1,5 @@
 ﻿
+
 @model List<YURT_OTOMASYONU.Data.Personel>
 
 
@@ -52,27 +53,27 @@
                             <td>@item.Ad @item.Soyad</td>
                             <td>@item.TCKimlikNo</td>
                             <td>
-                                <button type="button" class="btn btn-info">Sil</button>
+                                <button data-id="@item.Id" type="button" class="btn btn-info personelSıl">Sil</button>
                                 <button type="button" class="btn btn-info">Düzenle</button>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table><nav style="align-items:center">
-    <ul style="place-content: center" class="pagination">
-        <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Geri</a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item ">
-            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">İleri</a>
-        </li>
-    </ul>
-</nav>
+                <ul style="place-content: center" class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Geri</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item ">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">İleri</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </body>
@@ -81,8 +82,7 @@
 
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript">
-    $(function () {
+<script type="text/javascript">$(function () {
 
         $("#sendSearch").click(function () {
             GetPersonel();
@@ -111,5 +111,25 @@
                 });
             }
         });
-    }
+    }</script>
+
+
+<script>
+    $(".personelSıl").click(function () {
+        var personelId = $(this).attr("data-id");
+        var confirmDelete = confirm('Personeli silmek istediğinizden emin misiniz?');
+        if (confirmDelete) {
+            $.ajax({
+                  type: "POST",
+                 url: '@Url.Action("DeletePersonel", "Personel")',
+                data: JSON.stringify({ 'id': personelId }),
+             contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    if (result.success) {
+                        alert("Personel silindi");
+                    }
+                }
+            });
+        }
+    });
 </script>

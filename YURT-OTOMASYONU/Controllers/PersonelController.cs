@@ -130,6 +130,14 @@ namespace YURT_OTOMASYONU.Controllers
             db.SaveChanges();
             return View();
         }
+        [HttpPost]
+        public ActionResult DeletePersonel(int id)
+        {
+            var deletePersonel = db.Personel.FirstOrDefault(x => x.Id == id);
+            db.Personel.Remove(deletePersonel);
+            db.SaveChanges();
+            return View();
+        }
 
 
         public ActionResult AddFood()
