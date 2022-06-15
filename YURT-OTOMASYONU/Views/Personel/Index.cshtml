@@ -61,6 +61,15 @@
             Yardımlar
         </a>
 
+        <a data-modal-form="true"
+           data-modal-size="modal-lg"
+           data-modal-title="Yemek Ekle"
+           href="@Url.Action("AddFood", "Personel", routeValues: new {Area = string.Empty})"
+           data-hook-beforeunload="true"
+           class="btn btn-primary">
+            Yemek Ekle
+        </a>
+
         <div style="margin-top:20px" class="container">
             <table id="ogrenciler" class="table table-bordered">
                 <thead>
@@ -74,22 +83,23 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-        <tr>
+                        <tr>
 
-            <td>@item.Ad @item.Soyad</td>
-            <td>@item.TCKimlikNo</td>
-            <td>@item.OdaNo</td>
-            <td>
-                <button data-id="@item.Id" type="button" class="btn btn-info ogrenciSıl">Sil</button>
-                <a data-modal-form="true"
-                   data-modal-size="modal-xl"
-                   data-modal-title="Öğrenci Düzenle"
-                   href="@Url.Action("EditStudent","Personel",routeValues: new {ogrenciId = item.Id})"
-                   class="btn btn-info  ">
-                    Düzenle
-                </a>
-            </td>
-        </tr>}
+                            <td>@item.Ad @item.Soyad</td>
+                            <td>@item.TCKimlikNo</td>
+                            <td>@item.OdaNo</td>
+                            <td>
+                                <button data-id="@item.Id" type="button" class="btn btn-info ogrenciSıl">Sil</button>
+                                <a data-modal-form="true"
+                                   data-modal-size="modal-xl"
+                                   data-modal-title="Öğrenci Düzenle"
+                                   href="@Url.Action("EditStudent","Personel",routeValues: new {ogrenciId = item.Id})"
+                                   class="btn btn-info  ">
+                                    Düzenle
+                                </a>
+                            </td>
+                        </tr>
+}
                 </tbody>
             </table>
         </div>

@@ -201,7 +201,6 @@
     <Content Include="Views\Login\ForgotPassword.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Views\FoodList\Index.cshtml" />
-    <Content Include="Views\Personel\AddFood.cshtml" />
     <Content Include="Views\Student\_Permission.cshtml" />
     <Content Include="Views\Student\_Payment.cshtml" />
     <Content Include="Views\Login\PersonelLogin.cshtml" />
@@ -217,6 +216,7 @@
     <Content Include="Views\Student\_DayFood.cshtml" />
     <Content Include="Views\Personel\_EditStudent.cshtml" />
     <Content Include="Views\Personel\PersonelList.cshtml" />
+    <Content Include="Views\Personel\_AddFood.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

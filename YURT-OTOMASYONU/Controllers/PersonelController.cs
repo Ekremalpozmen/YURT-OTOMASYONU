@@ -142,7 +142,7 @@ namespace YURT_OTOMASYONU.Controllers
 
         public ActionResult AddFood()
         {
-            return View();
+            return PartialView("~/Views/Personel/_AddFood.cshtml");
         }
 
         public ActionResult PersonelList()
