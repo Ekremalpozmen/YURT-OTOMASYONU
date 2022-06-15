@@ -12,22 +12,40 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.Ogrenci.Ad @item.Ogrenci.Soyad</td>
-                    <td>@item.Ogrenci.TCKimlikNo</td>
-                    <td style="text-align-last:center">
-                        <a data-modal-form="true"
-                           data-modal-size="modal-lg"
-                           data-modal-title="İzin Detayı"
-                           href="@Url.Action("PermissionDetail", "Personel", routeValues: new {Area = string.Empty,izinId=item.Id})"
-                           data-hook-beforeunload="true"
-                           class="btn btn-info">
-                            Detay
-                        </a>
-                        <button type="button" class="btn btn-info">Onayla</button>
-                    </td>
-                </tr>
-            }
+<tr>
+    <td>@item.Ogrenci.Ad @item.Ogrenci.Soyad</td>
+    <td>@item.Ogrenci.TCKimlikNo</td>
+    <td style="text-align-last:center">
+        <a data-modal-form="true"
+           data-modal-size="modal-lg"
+           data-modal-title="İzin Detayı"
+           href="@Url.Action("PermissionDetail", "Personel", routeValues: new {Area = string.Empty,izinId=item.Id})"
+           data-hook-beforeunload="true"
+           class="btn btn-info">
+            Detay
+        </a>
+        <button data-id="@item.Id" type="button" class="btn btn-info izinOnayla">Onayla</button>
+    </td>
+</tr>            }
         </tbody>
     </table>
 </div>
+<script>
+    $(".izinOnayla").click(function () {
+        var izinId = $(this).attr("data-id");
+        var confirmDelete = confirm('İzini onaylamak istediğinizden emin misiniz?');
+        if (confirmDelete) {
+            $.ajax({
+                  type: "POST",
+                 url: '@Url.Action("ConfirmPermission", "Personel")',
+                data: JSON.stringify({ 'id': izinId }),
+             contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    if (result.success) {
+                        alert("İzin Onaylandı");
+                    }
+                }
+            });
+        }
+    });
+</script>

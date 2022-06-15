@@ -123,6 +123,15 @@ namespace YURT_OTOMASYONU.Controllers
         }
 
         [HttpPost]
+        public ActionResult ConfirmPermission(int id)
+        {
+            var model = db.Izinler.FirstOrDefault(x => x.Id == id);
+            model.KabulDurumu = true;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         public ActionResult DeleteStudent(int id)
         {
             var deleteStudent = db.Ogrenci.FirstOrDefault(x => x.Id == id);
