@@ -145,6 +145,22 @@ namespace YURT_OTOMASYONU.Controllers
             return PartialView("~/Views/Personel/_AddFood.cshtml");
         }
 
+        [HttpPost]
+        public ActionResult AddFood(YemekListesi yemeklistesi)
+        {
+            var yemek = new YemekListesi()
+            {
+                Yemek1 = yemeklistesi.Yemek1,
+                Yemek2 = yemeklistesi.Yemek2,
+                Yemek3 = yemeklistesi.Yemek3,
+                Yemek4 = yemeklistesi.Yemek4,
+                Tarih = DateTime.Now
+            };
+            db.YemekListesi.Add(yemek);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public ActionResult PersonelList()
         {
             var model = db.Personel.ToList();
